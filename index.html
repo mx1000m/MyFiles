@@ -207,29 +207,29 @@
   setInterval(createSquare, 150); // Change the interval to 150 milliseconds
 
   // Boat and coins movement animation
-  function moveBoatAndCoins() {
-    const boatAndCoins = document.querySelector('.boat-and-coins');
-    const viewportWidth = window.innerWidth;
-    const boatAndCoinsWidth = boatAndCoins.clientWidth;
-    const animationDuration = 15000; // Duration of the animation in milliseconds
+function moveBoatAndCoins() {
+  const boatAndCoins = document.querySelector('.boat-and-coins');
+  const viewportWidth = window.innerWidth;
+  const boatAndCoinsWidth = boatAndCoins.clientWidth;
+  const animationDuration = 15000; // Duration of the animation in milliseconds
 
-    let boatAndCoinsX = viewportWidth; // Start the boat and coins outside the right side of the viewport
+  let boatAndCoinsX = viewportWidth; // Start the boat and coins outside the right side of the viewport
 
-    function animate() {
-      boatAndCoinsX -= 1; // Move the boat and coins to the left
-      boatAndCoins.style.left = `${boatAndCoinsX}px`;
+  function animate() {
+    boatAndCoinsX -= 1; // Move the boat and coins to the left
+    boatAndCoins.style.left = `${boatAndCoinsX}px`;
 
-      if (boatAndCoinsX <= -boatAndCoinsWidth) {
-        boatAndCoinsX = viewportWidth;
-      }
-
-      requestAnimationFrame(animate);
+    if (boatAndCoinsX + boatAndCoinsWidth <= -500) {
+      boatAndCoinsX = viewportWidth - 1; // Reset the position slightly outside the viewport on the right side
     }
 
-    animate();
+    requestAnimationFrame(animate);
   }
 
-  moveBoatAndCoins();
+  animate();
+}
+
+moveBoatAndCoins();
 </script>
 </body>
 </html>

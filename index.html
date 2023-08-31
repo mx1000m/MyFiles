@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Pixel Captainz</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏴&zwj;☠️</text></svg>">
+<style>
+
+  html, body {
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+  }
+
+  body {
+    margin: 0;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .logo {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 250px;
+    height: auto;
+  }
+
+  .square {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    opacity: 0.5;
+    z-index: -1; /* Send the squares behind other elements */
+  }
+
+  .separator {
+    width: 100%;
+    height: 1px;
+    background-color: white;
+    margin-top: -8px;
+  }
+
+  .footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: auto; /* Positioned at the bottom */
+    font-family: 'Roboto', sans-serif; /* Google Font */
+    color: white; /* Set the text color to white */
+    text-align: center;
+    padding: 20px;
+  }
+
+  .footer-text {
+    font-size: 14px;
+    margin-bottom: 10px; /* Add margin below the text */
+  }
+
+  .footer-icons {
+    display: flex;
+    align-items: center;
+  }
+
+  .footer-icon {
+    cursor: pointer;
+    margin: 0 5px; /* Add margin around the icons */
+  }
+
+  .footer-icon img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .iframe-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 140px); /* Adjust the height to account for footer and header */
+  }
+  
+  .iframe-container iframe {
+    max-width: 100%;
+    max-height: 100%;
+  }
+  
+  .boat-image {
+    position: absolute;
+    bottom: 20px; /* Adjust the bottom position to align with the top of the separator */
+    width: 100px;
+    height: auto;
+  }
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+  <img src="https://github.com/mx1000m/MyFiles/raw/f8f85f9468bbf23acbc175cecc3b67884f0ec969/pixelcaptainzlogo.png" alt="Logo" class="logo">
+</div>
+
+<!-- Background squares will be here -->
+<div class="iframe-container">
+  <iframe src="https://mint.webmint.io/mint-module/the-pixel-captainz?test=true" width="980" height="650" frameBorder="0"></iframe>
+</div>
+
+<!-- Boat image on the separator line -->
+<img src="https://github.com/mx1000m/ThePixelCaptainz/raw/2f4dcdd7ed6083b3890351ecb5b7ab58d8313e05/PIXELBOAT.png" alt="Boat" class="boat-image">
+<div class="separator">
+  
+</div>
+
+<div class="footer">
+  <p class="footer-text"><span style="font-weight: bold;">For memelords, by memelords. Anchored in laughter, sailing through humor's realm! ©2023 HornyLand.</span></p>
+  <div class="footer-icons">
+    <a href="https://twitter.com/TheHornyland69" target="_blank" class="footer-icon">
+      <img src="https://raw.githubusercontent.com/mx1000m/MyFiles/main/X.svg" alt="Twitter Icon"/>
+    </a>
+    <a href="https://discord.gg/eKSxmjUba3" target="_blank" class="footer-icon">
+      <img src="https://raw.githubusercontent.com/mx1000m/MyFiles/main/discord.svg" alt="Discord Icon"/>
+    </a>
+  </div>
+</div>
+
+<script>
+  function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  function getRandomOpacity() {
+    return (getRandomInt(30, 85) / 100).toFixed(2); // Random opacity between 0.30 and 0.85
+  }
+
+  function createSquare() {
+    const square = document.createElement('div');
+    square.classList.add('square');
+    square.style.opacity = getRandomOpacity(); // Set random opacity
+    
+    document.body.appendChild(square);
+    
+    const viewportWidth = window.innerWidth;
+    const viewportHeight = window.innerHeight;
+    
+    const startX = getRandomInt(0, viewportWidth - 10);
+    const startY = getRandomInt(0, viewportHeight - 10);
+    square.style.left = `${startX}px`;
+    square.style.top = `${startY}px`;
+
+    const directionX = getRandomInt(-1, 1);
+    const directionY = getRandomInt(-1, 1);
+
+    let posX = startX;
+    let posY = startY;
+
+    const interval = setInterval(() => {
+      posX += directionX;
+      posY += directionY;
+      
+      square.style.left = `${posX}px`;
+      square.style.top = `${posY}px`;
+      
+      if (posX < -10 || posX > viewportWidth || posY < -10 || posY > viewportHeight) {
+        clearInterval(interval);
+        document.body.removeChild(square);
+      }
+    }, 50 + getRandomInt(0, 300));
+  }
+
+  // Create squares immediately and continue with interval
+  createSquare();
+  setInterval(createSquare, 150); // Change the interval to 150 milliseconds
+
+  // Boat movement animation
+  function moveBoat() {
+    const boat = document.querySelector('.boat-image');
+    const viewportWidth = window.innerWidth;
+    const boatWidth = boat.clientWidth;
+    const animationDuration = 15000; // Duration of the animation in milliseconds
+
+    let boatX = viewportWidth; // Start the boat outside the right side of the viewport
+
+    function animate() {
+      boatX -= 1; // Move the boat to the left
+      boat.style.left = `${boatX}px`;
+
+      if (boatX <= -boatWidth) {
+        boatX = viewportWidth;
+      }
+
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+  }
+
+  moveBoat();
+</script>
+</body>
+</html>

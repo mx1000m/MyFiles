@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Pixel Captainz</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏴&zwj;☠️</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+<style>
+  html, body {
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+  }
+
+  body {
+    margin: 0;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .logo {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 250px;
+    height: auto;
+    z-index: 1; /* Ensure the logo is above other content */
+  }
+
+  .title {
+    font-family: 'Rubik', sans-serif;
+    font-size: 24px;
+    color: white;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .square {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    opacity: 0.5;
+    z-index: -1; /* Send the squares behind other elements */
+  }
+
+  .separator {
+    width: 100%;
+    height: 1px;
+    background-color: white;
+    margin-top: -8px;
+  }
+
+  .footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: auto; /* Positioned at the bottom */
+    font-family: 'Roboto', sans-serif; /* Google Font */
+    color: white; /* Set the text color to white */
+    text-align: center;
+    padding: 20px;
+  }
+
+  .footer-text {
+    font-size: 14px;
+    margin-bottom: 10px; /* Add margin below the text */
+  }
+
+  .footer-icons {
+    display: flex;
+    align-items: center;
+  }
+
+  .footer-icon {
+    cursor: pointer;
+    margin: 0 5px; /* Add margin around the icons */
+  }
+
+  .footer-icon img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .iframe-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 140px); /* Adjust the height to account for footer and header */
+    max-width: 100%; /* Allow the iframe container to scale down */
+    overflow: hidden; /* Hide any overflow content */
+    position: relative; /* Add a position to create a stacking context */
+    z-index: 1; /* Place the iframe above other content */
+  }
+
+  .iframe-container iframe {
+    margin-top: 100px;
+    padding: 200px;
+  }
+
+  .boat-image {
+    position: absolute;
+    bottom: 0px; /* Adjust the bottom position to align with the top of the separator */
+    width: 500px;
+    height: auto;
+  }
+
+  .coins-image {
+    position: absolute;
+    bottom: 0px; /* Adjust the bottom position to align with the top of the separator */
+    width: 80px;
+    height: auto;
+    left: -90px; /* Position the coin image to the left of the boat image */
+  }
+
+  .boat-and-coins {
+    display: flex;
+    position: absolute;
+    bottom: 16px; /* Adjust the bottom position to align with the top of the separator */
+  }
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+  <a href="index.html"><img src="https://github.com/mx1000m/MyFiles/raw/f8f85f9468bbf23acbc175cecc3b67884f0ec969/pixelcaptainzlogo.png" alt="Logo" class="logo"></a>
+</div>
+
+<div class="iframe-container">
+  <iframe src="https://mint.webmint.io/mint-module/the-pixel-captainz?test=true" width="980" height="650" frameBorder="0"></iframe>
+</div>
+
+<!-- Boat and coins images on the separator line -->
+<div class="boat-and-coins">
+  <img src="https://github.com/mx1000m/ThePixelCaptainz/raw/3b2c7641138cb97aaaebd7f96c332a678136d92e/COINS-3.gif" alt="Coins" class="coins-image">
+  <img src="https://github.com/mx1000m/ThePixelCaptainz/raw/12d5fdbd5a8242405b3302e6579e7a2f2d676034/BOAT-4.png" alt="Boat" class="boat-image">
+</div>
+
+<div class="separator"></div>
+
+<div class="footer">
+  <p class="footer-text"><span style="font-weight: bold;">For memelords, by memelords. Anchored in laughter, sailing through humor's realm! ©2023 HornyLand.</span></p>
+  <div class="footer-icons">
+    <a href="https://twitter.com/TheHornyland69" target="_blank" class="footer-icon">
+      <img src="https://raw.githubusercontent.com/mx1000m/MyFiles/main/X.svg" alt="Twitter Icon"/>
+    </a>
+    <a href="https://discord.gg/eKSxmjUba3" target="_blank" class="footer-icon">
+      <img src="https://raw.githubusercontent.com/mx1000m/MyFiles/main/discord.svg" alt="Discord Icon"/>
+    </a>
+<a href="https://opensea.io" target="_blank" class="footer-icon">
+      <img src="https://raw.githubusercontent.com/mx1000m/MyFiles/main/opensea.svg" alt="OpenSea Icon Icon"/>
+    </a>
+  </div>
+</div>
+
+
+<script>
+  function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  function getRandomOpacity() {
+    return (getRandomInt(30, 85) / 100).toFixed(2); // Random opacity between 0.30 and 0.85
+  }
+
+  function createSquare() {
+    const square = document.createElement('div');
+    square.classList.add('square');
+    square.style.opacity = getRandomOpacity(); // Set random opacity
+    
+    document.body.appendChild(square);
+    
+    const viewportWidth = window.innerWidth;
+    const viewportHeight = window.innerHeight;
+    
+    const startX = getRandomInt(0, viewportWidth - 10);
+    const startY = getRandomInt(0, viewportHeight - 10);
+    square.style.left = `${startX}px`;
+    square.style.top = `${startY}px`;
+
+    const directionX = getRandomInt(-1, 1);
+    const directionY = getRandomInt(-1, 1);
+
+    let posX = startX;
+    let posY = startY;
+
+    const interval = setInterval(() => {
+      posX += directionX;
+      posY += directionY;
+      
+      square.style.left = `${posX}px`;
+      square.style.top = `${posY}px`;
+      
+      if (posX < -10 || posX > viewportWidth || posY < -10 || posY > viewportHeight) {
+        clearInterval(interval);
+        document.body.removeChild(square);
+      }
+    }, 50 + getRandomInt(0, 300));
+  }
+
+  // Create squares immediately and continue with interval
+  createSquare();
+  setInterval(createSquare, 150); // Change the interval to 150 milliseconds
+
+  // Boat and coins movement animation
+  function moveBoatAndCoins() {
+    const boatAndCoins = document.querySelector('.boat-and-coins');
+    const viewportWidth = window.innerWidth;
+    const boatAndCoinsWidth = boatAndCoins.clientWidth;
+    const animationDuration = 15000; // Duration of the animation in milliseconds
+
+    let boatAndCoinsX = viewportWidth; // Start the boat and coins outside the right side of the viewport
+
+    function animate() {
+      boatAndCoinsX -= 1; // Move the boat and coins to the left
+      boatAndCoins.style.left = `${boatAndCoinsX}px`;
+
+      if (boatAndCoinsX <= -boatAndCoinsWidth) {
+        boatAndCoinsX = viewportWidth;
+      }
+
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+  }
+
+  moveBoatAndCoins();
+</script>
+</body>
+</html>

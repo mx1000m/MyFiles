@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Pixel Captainz</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏴&zwj;☠️</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,700;1,400;1,500;1,600&display=swap" rel="stylesheet">
+<style>
+  html, body {
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+  }
+
+  body {
+    margin: 0;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .logo {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 250px;
+    height: auto;
+    z-index: 1; /* Ensure the logo is above other content */
+  }
+
+  .main-text {
+    font-family: 'Rubik', sans-serif;
+    color: white;
+    text-align: center;
+    padding: 20px;
+  }
+
+
+.disclaimer {
+    font-family: 'Rubik', sans-serif;
+font-size: 15px;
+max-width: 700px;
+    color: white;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .title {
+    font-weight: bold;
+font-size: 30px;
+background-color: rgba(0, 0, 0, 0.7);
+  }
+
+  .body-text {
+text-align: center;
+max-width: 700px;
+    font-size: 18px;
+    line-height: 1.618; /* Golden ratio for line height */
+background-color: rgba(0, 0, 0, 0.7);
+  }
+
+  .square {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    opacity: 0.5;
+    z-index: -1; /* Send the squares behind other elements */
+  }
+
+  .separator {
+    width: 100%;
+    height: 1px;
+    background-color: white;
+    margin-top: -8px;
+  }
+
+  .separatorsmall {
+    width: 20%;
+    height: 2px;
+    background-color: white;
+Margin-left: 40%;
+margin-right: 60%;
+    margin-top: 8px;
+  }
+
+  .footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: auto; /* Positioned at the bottom */
+    font-family: 'Roboto', sans-serif; /* Google Font */
+    color: white; /* Set the text color to white */
+    text-align: center;
+    padding: 20px;
+  }
+
+  .footer-text {
+    font-size: 14px;
+    margin-bottom: 10px; /* Add margin below the text */
+  }
+
+  .footer-icons {
+    display: flex;
+    align-items: center;
+  }
+
+  .footer-icon {
+    cursor: pointer;
+    margin: 0 5px; /* Add margin around the icons */
+  }
+
+  .footer-icon img {
+    width: 30px;
+    height: 30px;
+  }
+
+
+
+  .boat-image {
+    position: absolute;
+    bottom: 0px; /* Adjust the bottom position to align with the top of the separator */
+    width: 500px;
+    height: auto;
+  }
+
+.gm-image{
+    position: relative;
+    bottom: -20px; /* Adjust the bottom position to align with the top of the separator */
+    width: 100px;
+    height: auto;
+  }
+
+.magic-image{
+    position: relative;
+    bottom: -20px; /* Adjust the bottom position to align with the top of the separator */
+    width: 100px;
+    height: auto;
+  }
+
+.bill-image{
+    position: relative;
+    bottom: -20px; /* Adjust the bottom position to align with the top of the separator */
+    width: 100px;
+    height: auto;
+  }
+
+  .coins-image {
+    position: absolute;
+    bottom: 0px; /* Adjust the bottom position to align with the top of the separator */
+    width: 80px;
+    height: auto;
+    left: -90px; /* Position the coin image to the left of the boat image */
+  }
+
+  .boat-and-coins {
+    display: flex;
+    position: absolute;
+    bottom: -1722px; /* Adjust the bottom position to align with the top of the separator */
+  }
+
+
+.cat-image{
+    position: relative;
+    bottom: -20px; /* Adjust the bottom position to align with the top of the separator */
+    width: 90px;
+    height: auto;
+  }
+
+table {
+  font-family: 'Rubik', sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #282828;
+}
+
+
+
+
+  .box-image {
+    margin-top: -30px;
+    margin-bottom: 20px;
+    width: 250px;
+    height: auto;
+    z-index: 1; /* Ensure the logo is above other content */
+  }
+
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+  <a href="index.html"><img src="https://github.com/mx1000m/MyFiles/raw/f8f85f9468bbf23acbc175cecc3b67884f0ec969/pixelcaptainzlogo.png" alt="Logo" class="logo"></a>
+</div>
+
+<div class=".gm-image">
+  <img src="https://github.com/mx1000m/ThePixelCaptainz/raw/d290956d876d6f1f5f8be5e2e1bbc7cbe35c6537/GM.gif" alt="GM" class="gm-image">
+</div>
+
+<div class="main-text">
+  <p class="title">A Pixel Odyssey tailored for Pixel Lovers</p>
+  <p class="body-text">
+    Embark on a pixelated journey where <b>1069</b> adorable baby pixel pirates unite in a digital art treasure trove on the Ethereum blockchain.<br><br>
+    The initial release includes <b>300 distinctive traits</b> like weapons, hats, earrings, and outfits.
+  </p>
+<p><br></p>
+
+<div class="separatorsmall"></div>
+
+<p><br></p>
+
+<div class=".bill-image">
+  <img src="https://github.com/mx1000m/ThePixelCaptainz/raw/b3019da81729e4bec546a9777942a77f4d87d451/bill-big.gif" alt="bill" class="bill-image">
+</div> 
+
+  <p class="title">Fair Access and bot ass kicking</p>
+  <p class="body-text">
+    To ensure fair access and thwart any bot-related activity, each minting will be available <b>for $1</b> (0,00069 ETH).<br><br>
+    This approach safeguards against bots attempting to outpace genuine enthusiasts, making sure that everyone has an equal chance to enjoy the minting process and acquire their coveted pixels.
+  </p>
+<p><br></p>
+
+<div class="separatorsmall"></div>
+
+<p><br></p>
+
+<div class=".magic-image">
+  <img src="https://github.com/mx1000m/ThePixelCaptainz/raw/2e45c64002814c22de5656439f712e7010b744b6/magic-big.gif" alt="Customise" class="magic-image">
+</div>
+
+  <p class="title">Customize Your Fleet</p>
+  <p class="body-text">
+    Unveil the <b>dynamic feature</b> and set sail on a personalized creative journey.<br><br>
+    -Get ready for QR codes/links dropping randomly after mint.<br>
+    -Use QR codes to mint/upgrade your Pixel Captainz assets.<br>
+    -Some assets are limitless, while others have time/quantity limits.<br>
+    -Your Pixel Captainz can evolve based on your preference or rarity<br>
+    -Initial rarity tier won't hold you back, you can evolve, possibilities are endless.
+  </p>
+
+<p><br></p>
+
+<div class="separatorsmall"></div>
+
+
+
+
+</div>
+
+
+<div class="main-text">
+
+<div class=".cat-image">
+  <img src="https://github.com/mx1000m/ThePixelCaptainz/raw/c52f0876186674ce45be88e57146053c35d4f61f/cat2.gif" alt="Minting Cat" class="cat-image">
+</div>
+
+<p class="title">Mint Information</p>
+  <p class="body-text">
+
+<table>
+  <tr>
+    <th>WHITELIST ELIGIBILITY</th>
+    <td>All Captainz, Pixie Bumz, and HornyPixel holders on August 31st 2023</td>
+  </tr>
+  <tr>
+    <th>MINTING</th>
+    <td>First Come First Served</td>
+  </tr>
+  <tr>
+    <th>BLOCKCHAIN</th>
+    <td>Ethereum</td>
+  </tr>
+  <tr>
+    <th>SUPPLY</th>
+    <td>Limited to 1069</td>
+  </tr>
+  <tr>
+    <th>INITIAL DROP</th>
+    <td>Featuring 300 different traits</td>
+  </tr>
+  <tr>
+    <th>WHITELIST PRICE</th>
+    <td>0.00069 ETH (Approx. $1)</td>
+  </tr>
+  <tr>
+    <th>PUBLIC PRICE</th>
+    <td>0.0069 ETH (Approx. $10)</td>
+  </tr>
+  <tr>
+    <th>DATE</th>
+    <td>To be announced</td>
+  </tr>
+</table>
+
+<p class="disclaimer">
+<i><u>Disclaimer</u>: We have received approval from Jordan (@on9.eth - MemeLand's head team) and are not affiliated with MemeLand.</i>
+</p>
+
+  <a href="index.html"><img src="https://github.com/mx1000m/ThePixelCaptainz/raw/0171242ba26d1ed8c56d4e8a1a2e3261146f320f/box2.gif" alt="pre-reveal" class="box-image"></a>
+</div>
+
+<p><br></p>
+</div>
+
+<div class="boat-and-coins">
+  <img src="https://github.com/mx1000m/ThePixelCaptainz/raw/3b2c7641138cb97aaaebd7f96c332a678136d92e/COINS-3.gif" alt="Coins" class="coins-image">
+  <img src="https://github.com/mx1000m/ThePixelCaptainz/raw/12d5fdbd5a8242405b3302e6579e7a2f2d676034/BOAT-4.png" alt="Boat" class="boat-image">
+</div>
+
+<div class="separator"></div>
+
+<div class="footer">
+  <p class="footer-text"><span style="font-weight: bold;">For memelords, by memelords. Anchored in laughter, sailing through humor's realm! ©2023 HornyLand.</span></p>
+  <div class="footer-icons">
+    <a href="https://twitter.com/TheHornyland69" target="_blank" class="footer-icon">
+      <img src="https://raw.githubusercontent.com/mx1000m/MyFiles/main/X.svg" alt="Twitter Icon"/>
+    </a>
+    <a href="https://discord.gg/eKSxmjUba3" target="_blank" class="footer-icon">
+      <img src="https://raw.githubusercontent.com/mx1000m/MyFiles/main/discord.svg" alt="Discord Icon"/>
+    </a>
+<a href="https://opensea.io" target="_blank" class="footer-icon">
+      <img src="https://raw.githubusercontent.com/mx1000m/MyFiles/main/opensea.svg" alt="OpenSea Icon Icon"/>
+    </a>
+  </div>
+</div>
+
+<script>
+  function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  function getRandomOpacity() {
+    return (getRandomInt(30, 85) / 100).toFixed(2); // Random opacity between 0.30 and 0.85
+  }
+
+  function createSquare() {
+    const square = document.createElement('div');
+    square.classList.add('square');
+    square.style.opacity = getRandomOpacity(); // Set random opacity
+    
+    document.body.appendChild(square);
+    
+    const viewportWidth = window.innerWidth;
+    const viewportHeight = window.innerHeight;
+    
+    const startX = getRandomInt(0, viewportWidth - 10);
+    const startY = getRandomInt(0, viewportHeight - 10);
+    square.style.left = `${startX}px`;
+    square.style.top = `${startY}px`;
+
+    const directionX = getRandomInt(-1, 1);
+    const directionY = getRandomInt(-1, 1);
+
+    let posX = startX;
+    let posY = startY;
+
+    const interval = setInterval(() => {
+      posX += directionX;
+      posY += directionY;
+      
+      square.style.left = `${posX}px`;
+      square.style.top = `${posY}px`;
+      
+      if (posX < -10 || posX > viewportWidth || posY < -10 || posY > viewportHeight) {
+        clearInterval(interval);
+        document.body.removeChild(square);
+      }
+    }, 50 + getRandomInt(0, 300));
+  }
+
+  // Create squares immediately and continue with interval
+  createSquare();
+  setInterval(createSquare, 150); // Change the interval to 150 milliseconds
+
+  // Boat and coins movement animation
+function moveBoatAndCoins() {
+  const boatAndCoins = document.querySelector('.boat-and-coins');
+  const viewportWidth = window.innerWidth;
+  const boatAndCoinsWidth = boatAndCoins.clientWidth;
+  const animationDuration = 15000; // Duration of the animation in milliseconds
+
+  let boatAndCoinsX = viewportWidth; // Start the boat and coins outside the right side of the viewport
+
+  function animate() {
+    boatAndCoinsX -= 1; // Move the boat and coins to the left
+    boatAndCoins.style.left = `${boatAndCoinsX}px`;
+
+    if (boatAndCoinsX + boatAndCoinsWidth <= -500) {
+      boatAndCoinsX = viewportWidth - 1; // Reset the position slightly outside the viewport on the right side
+    }
+
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+}
+
+moveBoatAndCoins();
+</script>
+</body>
+</html>

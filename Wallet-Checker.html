@@ -404,7 +404,7 @@ function checkWhitelist(csvData, userWallet, messageContainer) {
   const csvLines = csvData.split('\n');
 
   if (!userWallet.trim()) {
-    messageContainer.innerHTML = '<strong style="color: #FF0000;">Please input your wallet address in the wallet field.</strong>';
+    messageContainer.innerHTML = '<strong style="color: #FF0000;background: #000000">Please input your wallet address in the wallet field.</strong>';
     return; // Exit the function without further processing
   }
 
@@ -424,7 +424,7 @@ function checkWhitelist(csvData, userWallet, messageContainer) {
     messageContainer.appendChild(pepeImage);
 
     // Update the inner HTML with the message
-    messageContainer.innerHTML += `<br><strong style="color: #35a36f;">Well done Sailor! <br> You've made it onto the Whitelist! <br><br>WL Minting starts on 10/10/2023 at 2pm UTC!</strong>`;
+    messageContainer.innerHTML += `<br><strong style="color: #35a36f;background: #000000">Well done Sailor! <br> You've made it onto the Whitelist! <br><br>WL Minting starts on 10/10/2023 at 2pm UTC!</strong>`;
   } else {
     // Create an image element for the Pepe image
     const pepeImage = document.createElement('img');
@@ -436,7 +436,7 @@ function checkWhitelist(csvData, userWallet, messageContainer) {
     messageContainer.appendChild(pepeImage);
 
     // Update the inner HTML with the message
-    messageContainer.innerHTML += `<br><strong style="color: #FF0000;">Apologies... <br> It appears you haven't been whitelisted yet.</strong> <br><br>To join, simply like, RT, tag a friend, <br> comment your wallet address, and follow us <a href="https://twitter.com/TheHornyland69/status/1699513428329611436?s=20" target="_blank" style="color: white;">here</a>.`;
+    messageContainer.innerHTML += `<br><strong style="color: #FF0000;background: #000000">Apologies... <br> It appears you haven't been whitelisted yet.</strong> <br><br><strong style="color: #FFFFFF;background: #000000">To join, simply like, RT, tag a friend, <br> comment your wallet address, and follow us <a href="https://twitter.com/TheHornyland69/status/1699513428329611436?s=20" target="_blank" style="color: white;">here</a></strong>.`;
   }
 }
 

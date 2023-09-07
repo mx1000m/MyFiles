@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Pixel Captainz</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏴&zwj;☠️</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,700;1,400;1,500;1,600&display=swap" rel="stylesheet">
+    <style>
+        html, body {
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+        }
+
+        body {
+            margin: 0;
+            background-color: black;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .logo {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            width: 250px;
+            height: auto;
+            z-index: 1; /* Ensure the logo is above other content */
+        }
+
+        .main-text {
+            font-family: 'Rubik', sans-serif;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .disclaimer {
+            font-family: 'Rubik', sans-serif;
+            font-size: 15px;
+            max-width: 700px;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .title {
+            font-weight: bold;
+            font-size: 30px;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .body-text {
+            text-align: center;
+            max-width: 700px;
+            font-size: 18px;
+            line-height: 1.618; /* Golden ratio for line height */
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .square {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: white;
+            opacity: 0.5;
+            z-index: -1; /* Send the squares behind other elements */
+        }
+
+        .separator {
+            width: 100%;
+            height: 1px;
+            background-color: white;
+            margin-top: -8px;
+        }
+
+        .separatorsmall {
+            width: 20%;
+            height: 2px;
+            background-color: white;
+            margin-left: 40%;
+            margin-right: 60%;
+            margin-top: 8px;
+        }
+
+        .footer {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: auto; /* Positioned at the bottom */
+            font-family: 'Roboto', sans-serif; /* Google Font */
+            color: white; /* Set the text color to white */
+            text-align: center;
+            padding: 20px;
+        }
+
+        .footer-text {
+            font-size: 14px;
+            margin-bottom: 10px; /* Add margin below the text */
+        }
+
+        .footer-icons {
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-icon {
+            cursor: pointer;
+            margin: 0 5px; /* Add margin around the icons */
+        }
+
+        .footer-icon img {
+            width: 30px;
+            height: 30px;
+        }
+
+        .boat-image {
+            position: absolute;
+            bottom: 0px; /* Adjust the bottom position to align with the top of the separator */
+            width: 500px;
+            height: auto;
+        }
+
+        .gm-image {
+            position: relative;
+            bottom: -20px; /* Adjust the bottom position to align with the top of the separator */
+            width: 100px;
+            height: auto;
+        }
+
+        .magic-image {
+            position: relative;
+            bottom: -20px; /* Adjust the bottom position to align with the top of the separator */
+            width: 100px;
+            height: auto;
+        }
+
+        .bill-image {
+            position: relative;
+            bottom: -20px; /* Adjust the bottom position to align with the top of the separator */
+            width: 100px;
+            height: auto;
+        }
+
+        .coins-image {
+            position: absolute;
+            bottom: 0px; /* Adjust the bottom position to align with the top of the separator */
+            width: 80px;
+            height: auto;
+            left: -90px; /* Position the coin image to the left of the boat image */
+        }
+
+        .boat-and-coins {
+            display: flex;
+            position: absolute;
+            bottom: -1730px; /* Adjust the bottom position to align with the top of the separator */
+        }
+
+        @media only screen and (max-width: 600px) {
+            .boat-and-coins {
+                bottom: -2350px;
+            }
+        }
+
+        .cat-image {
+            position: relative;
+            bottom: -20px; /* Adjust the bottom position to align with the top of the separator */
+            width: 90px;
+            height: auto;
+        }
+
+        table {
+            font-family: 'Rubik', sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #282828;
+        }
+
+        .box-image {
+            margin-top: -30px;
+            margin-bottom: 20px;
+            width: 250px;
+            height: auto;
+            z-index: 1; /* Ensure the logo is above other content */
+        }
+
+
+
+
+
+
+
+
+  .check-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  .wallet-input {
+    width: 360px;
+    padding: 10px;
+    border: 2px solid white;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .check-button {
+    background-color: black;
+    color: white;
+    border: 2px solid white;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+
+
+
+  .check-button-clicked {
+    animation: buttonClick 0.1s linear;
+  }
+
+  @keyframes buttonClick {
+    0% { transform: scale(1); }
+    50% { transform: scale(0.95); }
+    100% { transform: scale(1); }
+  }
+
+
+
+
+.check-button {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  border: 2px solid white;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s, color 0.3s; /* Add transition for smooth color change */
+}
+
+.check-button:hover {
+  background-color: white;
+  color: black;
+}
+
+
+
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <a href="index.html"><img src="https://github.com/mx1000m/MyFiles/raw/f8f85f9468bbf23acbc175cecc3b67884f0ec969/pixelcaptainzlogo.png" alt="Logo" class="logo"></a>
+    <p><br></p>
+</div>
+
+
+
+
+
+ <div class="check-container">
+<p style="font-size:15px; color: white; font-family:'Rubik'">WALLET ADDRESS</p>
+    <!-- Input field for wallet address -->
+    <input type="text" id="wallet-input" class="wallet-input" placeholder="Enter your wallet address">
+<br>
+    <!-- Button to check eligibility -->
+    <button id="check-button" class="check-button">Check Eligibility</button>
+
+    <!-- Message container for displaying results -->
+    <div id="message-container" class="main-text"></div>
+
+<p><br></p>
+<p><br></p>
+  </div>
+
+
+
+
+
+
+
+<div class="boat-and-coins">
+    <img src="https://github.com/mx1000m/ThePixelCaptainz/raw/3b2c7641138cb97aaaebd7f96c332a678136d92e/COINS-3.gif" alt="Coins" class="coins-image">
+    <img src="https://github.com/mx1000m/ThePixelCaptainz/raw/12d5fdbd5a8242405b3302e6579e7a2f2d676034/BOAT-4.png" alt="Boat" class="boat-image">
+</div>
+
+<div class="separator"></div>
+
+<div class="footer">
+    <p class="footer-text"><span style="font-weight: bold;">For memelords, by memelords. Anchored in laughter, sailing through humor's realm! ©2023 HornyLand.</span></p>
+    <div class="footer-icons">
+        <a href="https://twitter.com/TheHornyland69" target="_blank" class="footer-icon">
+            <img src="https://raw.githubusercontent.com/mx1000m/MyFiles/main/X.svg" alt="Twitter Icon"/>
+        </a>
+        <a href="https://discord.gg/eKSxmjUba3" target="_blank" class="footer-icon">
+            <img src="https://raw.githubusercontent.com/mx1000m/MyFiles/main/discord.svg" alt="Discord Icon"/>
+        </a>
+        <a href="https://opensea.io/collection/the-pixel-captainz" target="_blank" class="footer-icon">
+            <img src="https://raw.githubusercontent.com/mx1000m/MyFiles/main/opensea.svg" alt="OpenSea Icon Icon"/>
+        </a>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+<script>
+
+
+
+  // Zoom out the logo and slide it up after 1 second
+  setTimeout(function() {
+    const logo = document.querySelector('.logo');
+    logo.style.display = 'block';
+    logo.style.animation = 'zoomout 1s forwards';
+  });
+
+
+
+
+
+// Square animation
+  function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  function getRandomOpacity() {
+    return (getRandomInt(30, 85) / 100).toFixed(2); // Random opacity between 0.30 and 0.85
+  }
+
+  function createSquare() {
+    const square = document.createElement('div');
+    square.classList.add('square');
+    square.style.opacity = getRandomOpacity(); // Set random opacity
+    
+    document.body.appendChild(square);
+    
+    const viewportWidth = window.innerWidth;
+    const viewportHeight = window.innerHeight;
+    
+    const startX = getRandomInt(0, viewportWidth - 10);
+    const startY = getRandomInt(0, viewportHeight - 10);
+    square.style.left = `${startX}px`;
+    square.style.top = `${startY}px`;
+
+    const directionX = getRandomInt(-1, 1);
+    const directionY = getRandomInt(-1, 1);
+
+    let posX = startX;
+    let posY = startY;
+
+    const interval = setInterval(() => {
+      posX += directionX;
+      posY += directionY;
+      
+      square.style.left = `${posX}px`;
+      square.style.top = `${posY}px`;
+      
+      if (posX < -10 || posX > viewportWidth || posY < -10 || posY > viewportHeight) {
+        clearInterval(interval);
+        document.body.removeChild(square);
+      }
+    }, 50 + getRandomInt(0, 300));
+  }
+
+  // Create squares immediately and continue with interval
+  createSquare();
+  setInterval(createSquare, 150); // Change the interval to 150 milliseconds
+
+
+
+
+
+
+
+
+// JavaScript code for fetching CSV data and checking eligibility
+function checkWhitelist(csvData, userWallet) {
+  const csvLines = csvData.split('\n');
+
+  const isWhitelisted = csvLines.some((line) => {
+    const walletAddress = line.trim();
+    return walletAddress === userWallet;
+  });
+
+  const messageContainer = document.getElementById('message-container');
+
+  if (isWhitelisted) {
+    messageContainer.innerHTML = `<br><strong>Well done Sailor! <br> You've made it onto the Whitelist!</strong> <br><br>WL Minting starts on <strong>10/10/2023 at 2pm UTC!</strong>`;
+  } else {
+    messageContainer.innerHTML = `<br><strong>Apologies... <br> It appears you haven't been whitelisted yet.</strong> <br><br>To join, simply like, RT, tag a friend, <br> comment your wallet address, and follow us 
+      <a href="https://twitter.com/TheHornyland69/status/1699513428329611436?s=20" target="_blank" style="color: white;">here</a>.`;
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const checkButton = document.getElementById('check-button');
+  const walletInput = document.getElementById('wallet-input');
+
+  checkButton.addEventListener('click', () => {
+    // Add the animation class when the button is clicked
+    checkButton.classList.add('check-button-clicked');
+
+    const csvFileUrl = 'https://raw.githubusercontent.com/mx1000m/ThePixelCaptainz/main/wallet.csv';
+    const userWallet = walletInput.value.trim(); // Get user's wallet address
+
+    fetch(csvFileUrl)
+      .then((response) => response.text())
+      .then((data) => {
+        checkWhitelist(data, userWallet);
+
+        // Remove the animation class after a short delay (200ms)
+        setTimeout(() => {
+          checkButton.classList.remove('check-button-clicked');
+        }, 200);
+      })
+      .catch((error) => {
+        console.error('Error fetching CSV file:', error);
+      });
+  });
+});
+
+
+</script>
+</body>
+</html>

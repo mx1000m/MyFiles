@@ -400,12 +400,10 @@
 
 
 
-// JavaScript code for fetching CSV data and checking eligibility
-function checkWhitelist(csvData, userWallet) {
+function checkWhitelist(csvData, userWallet, messageContainer) {
   const csvLines = csvData.split('\n');
 
   if (!userWallet.trim()) {
-    const messageContainer = document.getElementById('message-container');
     messageContainer.innerHTML = '<strong style="color: #FF0000;">Please input your wallet address in the wallet field.</strong>';
     return; // Exit the function without further processing
   }
@@ -415,21 +413,41 @@ function checkWhitelist(csvData, userWallet) {
     return walletAddress === userWallet;
   });
 
-  const messageContainer = document.getElementById('message-container');
-
   if (isWhitelisted) {
-    messageContainer.innerHTML = `<br><strong style="color: #35a36f;">Well done Sailor! <br> You've made it onto the Whitelist! <br><br>WL Minting starts on 10/10/2023 at 2pm UTC!</strong>`;
+    // Create an image element for the dancing Pepe
+    const pepeImage = document.createElement('img');
+    pepeImage.src = 'https://media.tenor.com/PeVD5gpFXxwAAAAC/pepe-dancing.gif';
+    pepeImage.alt = 'Dancing Pepe';
+    pepeImage.style.width = '100px';
+
+    // Append the image before the text
+    messageContainer.appendChild(pepeImage);
+
+    // Update the inner HTML with the message
+    messageContainer.innerHTML += `<br><strong style="color: #35a36f;">Well done Sailor! <br> You've made it onto the Whitelist! <br><br>WL Minting starts on 10/10/2023 at 2pm UTC!</strong>`;
   } else {
-    messageContainer.innerHTML = `<br><strong style="color: #bf3434;">Apologies... <br> It appears you haven't been whitelisted yet.</strong> <br><br>To join, simply like, RT, tag a friend, <br> comment your wallet address, and follow us 
-      <a href="https://twitter.com/TheHornyland69/status/1699513428329611436?s=20" target="_blank" style="color: white;">here</a>.`;
+    // Create an image element for the Pepe image
+    const pepeImage = document.createElement('img');
+    pepeImage.src = 'https://media.tenor.com/gWs0s8QlsUgAAAAM/pepe-peppo.gif';
+    pepeImage.alt = 'Pepe';
+    pepeImage.style.width = '100px';
+
+    // Append the image before the text
+    messageContainer.appendChild(pepeImage);
+
+    // Update the inner HTML with the message
+    messageContainer.innerHTML += `<br><strong style="color: #FF0000;">Apologies... <br> It appears you haven't been whitelisted yet.</strong> <br><br>To join, simply like, RT, tag a friend, <br> comment your wallet address, and follow us <a href="https://twitter.com/TheHornyland69/status/1699513428329611436?s=20" target="_blank" style="color: white;">here</a>.`;
   }
 }
+
+
 
 
 
 document.addEventListener('DOMContentLoaded', () => {
   const checkButton = document.getElementById('check-button');
   const walletInput = document.getElementById('wallet-input');
+  const messageContainer = document.getElementById('message-container'); // Move this line outside the click event handler
 
   checkButton.addEventListener('click', () => {
     // Add the check-button-clicked class to trigger animation
@@ -441,7 +459,10 @@ document.addEventListener('DOMContentLoaded', () => {
     fetch(csvFileUrl)
       .then((response) => response.text())
       .then((data) => {
-        checkWhitelist(data, userWallet);
+        // Clear the previous content before adding new content
+        messageContainer.innerHTML = '';
+
+        checkWhitelist(data, userWallet, messageContainer); // Pass the messageContainer to the function
       })
       .catch((error) => {
         console.error('Error fetching CSV file:', error);

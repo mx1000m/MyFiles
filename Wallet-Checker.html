@@ -404,6 +404,12 @@
 function checkWhitelist(csvData, userWallet) {
   const csvLines = csvData.split('\n');
 
+  if (!userWallet.trim()) {
+    const messageContainer = document.getElementById('message-container');
+    messageContainer.innerHTML = '<strong style="color: #FF0000;">Please input your wallet address in the wallet field.</strong>';
+    return; // Exit the function without further processing
+  }
+
   const isWhitelisted = csvLines.some((line) => {
     const walletAddress = line.trim();
     return walletAddress === userWallet;
@@ -412,19 +418,21 @@ function checkWhitelist(csvData, userWallet) {
   const messageContainer = document.getElementById('message-container');
 
   if (isWhitelisted) {
-    messageContainer.innerHTML = `<br><strong>Well done Sailor! <br> You've made it onto the Whitelist!</strong> <br><br>WL Minting starts on <strong>10/10/2023 at 2pm UTC!</strong>`;
+    messageContainer.innerHTML = `<br><strong style="color: #35a36f;">Well done Sailor! <br> You've made it onto the Whitelist! <br><br>WL Minting starts on 10/10/2023 at 2pm UTC!</strong>`;
   } else {
-    messageContainer.innerHTML = `<br><strong>Apologies... <br> It appears you haven't been whitelisted yet.</strong> <br><br>To join, simply like, RT, tag a friend, <br> comment your wallet address, and follow us 
+    messageContainer.innerHTML = `<br><strong style="color: #bf3434;">Apologies... <br> It appears you haven't been whitelisted yet.</strong> <br><br>To join, simply like, RT, tag a friend, <br> comment your wallet address, and follow us 
       <a href="https://twitter.com/TheHornyland69/status/1699513428329611436?s=20" target="_blank" style="color: white;">here</a>.`;
   }
 }
+
+
 
 document.addEventListener('DOMContentLoaded', () => {
   const checkButton = document.getElementById('check-button');
   const walletInput = document.getElementById('wallet-input');
 
   checkButton.addEventListener('click', () => {
-    // Add the animation class when the button is clicked
+    // Add the check-button-clicked class to trigger animation
     checkButton.classList.add('check-button-clicked');
 
     const csvFileUrl = 'https://raw.githubusercontent.com/mx1000m/ThePixelCaptainz/main/wallet.csv';
@@ -434,17 +442,22 @@ document.addEventListener('DOMContentLoaded', () => {
       .then((response) => response.text())
       .then((data) => {
         checkWhitelist(data, userWallet);
-
-        // Remove the animation class after a short delay (200ms)
-        setTimeout(() => {
-          checkButton.classList.remove('check-button-clicked');
-        }, 200);
       })
       .catch((error) => {
         console.error('Error fetching CSV file:', error);
       });
+
+    // Remove the check-button-clicked class after a brief delay
+    setTimeout(() => {
+      checkButton.classList.remove('check-button-clicked');
+    }, 100);
   });
 });
+
+
+
+
+
 
 
 </script>

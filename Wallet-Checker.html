@@ -408,10 +408,22 @@ function checkWhitelist(csvData, userWallet, messageContainer) {
     return; // Exit the function without further processing
   }
 
+
+
+
+
+  // Convert user input to lowercase (or uppercase) for case-insensitive comparison
+  const userWalletLower = userWallet.toLowerCase();
+
   const isWhitelisted = csvLines.some((line) => {
-    const walletAddress = line.trim();
-    return walletAddress === userWallet;
+    const walletAddress = line.trim().toLowerCase(); // Convert whitelist entry to lowercase
+    return walletAddress === userWalletLower;
   });
+
+
+
+
+
 
   if (isWhitelisted) {
     // Create an image element for the dancing Pepe

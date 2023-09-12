@@ -6,7 +6,14 @@
     <title>The Pixel Captainz</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏴&zwj;☠️</text></svg>">
     <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,700;1,400;1,500;1,600&display=swap" rel="stylesheet">
-    <style>
+<!-- Add this script to the head section -->
+<script src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@yourtwitterhandle">
+    <meta name="twitter:title" content="AHOY PIXEL CAPTAINZ">
+    <meta name="twitter:description" content="Your Tweet Description">
+    <meta name="twitter:image" content="https://github.com/mx1000m/ThePixelCaptainz/raw/cbb3463a6101acf169a6b8221fa173cb784df7a1/COINS-3.gif">
+<style>
         html, body {
             overflow-x: hidden; /* Prevent horizontal scrolling */
         }
@@ -224,14 +231,7 @@
     margin-bottom: 10px;
   }
 
-  .check-button {
-    background-color: black;
-    color: white;
-    border: 2px solid white;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-size: 16px;
-  }
+
 
 
 
@@ -262,6 +262,7 @@
 .check-button:hover {
   background-color: white;
   color: black;
+transition: background-color 0.3s, color 0.3s;
 }
 
 
@@ -334,73 +335,116 @@
 
 
 
-  // Zoom out the logo and slide it up after 1 second
-  setTimeout(function() {
-    const logo = document.querySelector('.logo');
-    logo.style.display = 'block';
-    logo.style.animation = 'zoomout 1s forwards';
-  });
+
+
+
+        // Zoom out the logo and slide it up after 1 second
+        setTimeout(function () {
+            const logo = document.querySelector('.logo');
+            logo.style.display = 'block';
+            logo.style.animation = 'zoomout 1s forwards';
+        });
+
+        // Square animation
+        function getRandomInt(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        function getRandomOpacity() {
+            return (getRandomInt(30, 85) / 100).toFixed(2); // Random opacity between 0.30 and 0.85
+        }
+
+        function createSquare() {
+            const square = document.createElement('div');
+            square.classList.add('square');
+            square.style.opacity = getRandomOpacity(); // Set random opacity
+
+            document.body.appendChild(square);
+
+            const viewportWidth = window.innerWidth;
+            const viewportHeight = window.innerHeight;
+
+            const startX = getRandomInt(0, viewportWidth - 10);
+            const startY = getRandomInt(0, viewportHeight - 10);
+            square.style.left = `${startX}px`;
+            square.style.top = `${startY}px`;
+
+            const directionX = getRandomInt(-1, 1);
+            const directionY = getRandomInt(-1, 1);
+
+            let posX = startX;
+            let posY = startY;
+
+            const interval = setInterval(() => {
+                posX += directionX;
+                posY += directionY;
+
+                square.style.left = `${posX}px`;
+                square.style.top = `${posY}px`;
+
+                if (posX < -10 || posX > viewportWidth || posY < -10 || posY > viewportHeight) {
+                    clearInterval(interval);
+                    document.body.removeChild(square);
+                }
+            }, 50 + getRandomInt(0, 300));
+        }
+
+        // Create squares immediately and continue with an interval
+        createSquare();
+        setInterval(createSquare, 150);
 
 
 
 
 
-// Square animation
-  function getRandomInt(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-  }
-
-  function getRandomOpacity() {
-    return (getRandomInt(30, 85) / 100).toFixed(2); // Random opacity between 0.30 and 0.85
-  }
-
-  function createSquare() {
-    const square = document.createElement('div');
-    square.classList.add('square');
-    square.style.opacity = getRandomOpacity(); // Set random opacity
-    
-    document.body.appendChild(square);
-    
-    const viewportWidth = window.innerWidth;
-    const viewportHeight = window.innerHeight;
-    
-    const startX = getRandomInt(0, viewportWidth - 10);
-    const startY = getRandomInt(0, viewportHeight - 10);
-    square.style.left = `${startX}px`;
-    square.style.top = `${startY}px`;
-
-    const directionX = getRandomInt(-1, 1);
-    const directionY = getRandomInt(-1, 1);
-
-    let posX = startX;
-    let posY = startY;
-
-    const interval = setInterval(() => {
-      posX += directionX;
-      posY += directionY;
-      
-      square.style.left = `${posX}px`;
-      square.style.top = `${posY}px`;
-      
-      if (posX < -10 || posX > viewportWidth || posY < -10 || posY > viewportHeight) {
-        clearInterval(interval);
-        document.body.removeChild(square);
-      }
-    }, 50 + getRandomInt(0, 300));
-  }
-
-  // Create squares immediately and continue with interval
-  createSquare();
-  setInterval(createSquare, 150); // Change the interval to 150 milliseconds
 
 
 
+ // Function to create the Twitter button
+    function createTwitterButton(message, hashtags, visualUrl) {
+        // Create a Twitter button container
+        const twitterButtonContainer = document.createElement('div');
+        twitterButtonContainer.style.display = 'inline-block';
 
+        // Create the Twitter button
+        const twitterButton = document.createElement('a');
+        twitterButton.href = '#';
+        twitterButton.innerText = 'Tweet about it';
 
+        // Style the button
+        twitterButton.style.backgroundColor = 'white';
+        twitterButton.style.color = 'black';
+        twitterButton.style.padding = '10px 20px';
+        twitterButton.style.borderRadius = '5px';
+        twitterButton.style.transition = 'transform 0.2s ease-in-out';
 
+        // Add hover effect
+        twitterButton.addEventListener('mouseenter', () => {
+            twitterButton.style.transform = 'scale(1.05)';
+        });
 
+        twitterButton.addEventListener('mouseleave', () => {
+            twitterButton.style.transform = 'scale(1)';
+        });
 
-function checkWhitelist(csvData, userWallet, messageContainer) {
+        // Add click event to open Twitter share
+        twitterButton.addEventListener('click', () => {
+            const tweetText = encodeURIComponent(message);
+            const tweetHashtags = encodeURIComponent(hashtags);
+            const tweetVisual = encodeURIComponent(visualUrl);
+
+            const twitterShareUrl = `https://twitter.com/intent/tweet?text=${tweetText}&hashtags=${tweetHashtags}&url=${tweetVisual}`;
+            window.open(twitterShareUrl, '_blank', 'width=550,height=420');
+        });
+
+        // Append the button to the container
+        twitterButtonContainer.appendChild(twitterButton);
+
+        return twitterButtonContainer;
+    }
+
+    // Function to check whitelist
+    function checkWhitelist(csvData, userWallet, messageContainer) {
   const csvLines = csvData.split('\n');
 
   if (!userWallet.trim()) {
@@ -421,12 +465,9 @@ function checkWhitelist(csvData, userWallet, messageContainer) {
   });
 
 
-
-
-
-
-  if (isWhitelisted) {
-    // Create an image element for the dancing Pepe
+        if (isWhitelisted) {
+            // ... (Your existing code)
+// Create an image element for the dancing Pepe
     const pepeImage = document.createElement('img');
     pepeImage.src = 'https://media.tenor.com/PeVD5gpFXxwAAAAC/pepe-dancing.gif';
     pepeImage.alt = 'Dancing Pepe';
@@ -437,8 +478,19 @@ function checkWhitelist(csvData, userWallet, messageContainer) {
 
     // Update the inner HTML with the message
     messageContainer.innerHTML += `<br><strong style="color: #35a36f;background: #000000">Well done Sailor! <br> You've made it onto the Whitelist! <br><br>WL Minting starts on 10/10/2023 at 2pm UTC!</strong>`;
-  } else {
-    // Create an image element for the Pepe image
+
+
+
+
+            // Append the Twitter button to your desired location in the DOM
+            const message = "AHOY, me shipmates! I've joined the Whitelist crew. What's yer plan now, eh? 🏴‍☠️💎 #NFT #PixelCaptainz #Mint2023";
+            const hashtags = "NFT,PixelCaptainz,Mint2023";
+            const visualUrl = "https://raw.githubusercontent.com/mx1000m/ThePixelCaptainz/main/BOAT-4.png";
+
+            const twitterButtonContainer = createTwitterButton(message, hashtags, visualUrl);
+            messageContainer.appendChild(twitterButtonContainer); // Append the Twitter button to the message container
+        } else {
+// Create an image element for the Pepe image
     const pepeImage = document.createElement('img');
     pepeImage.src = 'https://media.tenor.com/gWs0s8QlsUgAAAAM/pepe-peppo.gif';
     pepeImage.alt = 'Pepe';
@@ -451,10 +503,6 @@ function checkWhitelist(csvData, userWallet, messageContainer) {
     messageContainer.innerHTML += `<br><strong style="color: #FF0000;background: #000000">Apologies... <br> It appears you haven't been whitelisted yet.</strong> <br><br><strong style="color: #FFFFFF;background: #000000">To join, simply like, RT, tag a friend, <br> comment your wallet address, and follow us <a href="https://twitter.com/TheHornyland69/status/1699513428329611436?s=20" target="_blank" style="color: white;">here</a></strong>.`;
   }
 }
-
-
-
-
 
 document.addEventListener('DOMContentLoaded', () => {
   const checkButton = document.getElementById('check-button');
@@ -486,9 +534,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 100);
   });
 });
-
-
-
 
 
 

@@ -11,8 +11,8 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@yourtwitterhandle">
     <meta name="twitter:title" content="AHOY PIXEL CAPTAINZ">
-    <meta name="twitter:description" content="Your Tweet Description">
-    <meta name="twitter:image" content="https://github.com/mx1000m/ThePixelCaptainz/raw/cbb3463a6101acf169a6b8221fa173cb784df7a1/COINS-3.gif">
+    <meta name="twitter:description" content="AHOY PIXEL CAPTAINZ">
+    <meta name="twitter:image" content="">
 <style>
         html, body {
             overflow-x: hidden; /* Prevent horizontal scrolling */
@@ -267,6 +267,34 @@ transition: background-color 0.3s, color 0.3s;
 
 
 
+
+
+
+
+
+    .tweet-button {
+        font-family: 'Rubik', sans-serif;
+        font-weight: medium; /* Use Rubik Bold */
+        text-decoration: none; /* Remove underline */
+        background-color: white;
+        color: black;
+        padding: 10px 20px;
+        border-radius: 5px;
+        transition: transform 0.2s ease-in-out;
+        display: inline-block;
+        cursor: pointer;
+    }
+
+    .tweet-button:hover {
+        background-color: black;
+        color: white;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+
+
+
+
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
@@ -275,6 +303,9 @@ transition: background-color 0.3s, color 0.3s;
     <a href="index.html"><img src="https://github.com/mx1000m/MyFiles/raw/f8f85f9468bbf23acbc175cecc3b67884f0ec969/pixelcaptainzlogo.png" alt="Logo" class="logo"></a>
     <p><br></p>
 </div>
+
+
+
 
 
 
@@ -300,11 +331,6 @@ transition: background-color 0.3s, color 0.3s;
 
 
 
-
-<div class="boat-and-coins">
-    <img src="https://github.com/mx1000m/ThePixelCaptainz/raw/3b2c7641138cb97aaaebd7f96c332a678136d92e/COINS-3.gif" alt="Coins" class="coins-image">
-    <img src="https://github.com/mx1000m/ThePixelCaptainz/raw/12d5fdbd5a8242405b3302e6579e7a2f2d676034/BOAT-4.png" alt="Boat" class="boat-image">
-</div>
 
 <div class="separator"></div>
 
@@ -406,10 +432,12 @@ transition: background-color 0.3s, color 0.3s;
         const twitterButtonContainer = document.createElement('div');
         twitterButtonContainer.style.display = 'inline-block';
 
-        // Create the Twitter button
-        const twitterButton = document.createElement('a');
-        twitterButton.href = '#';
-        twitterButton.innerText = 'Tweet about it';
+// Create the Twitter button
+const twitterButton = document.createElement('a');
+twitterButton.href = '#';
+twitterButton.innerText = 'TWEET IT!';
+twitterButton.classList.add('tweet-button'); // Add the tweet-button class
+
 
         // Style the button
         twitterButton.style.backgroundColor = 'white';
@@ -477,15 +505,15 @@ transition: background-color 0.3s, color 0.3s;
     messageContainer.appendChild(pepeImage);
 
     // Update the inner HTML with the message
-    messageContainer.innerHTML += `<br><strong style="color: #35a36f;background: #000000">Well done Sailor! <br> You've made it onto the Whitelist! <br><br>WL Minting starts on 10/10/2023 at 2pm UTC!</strong>`;
+    messageContainer.innerHTML += `<br><strong style="color: #35a36f;background: #000000">🏴‍☠️ Well done Sailor! 🏴‍☠️ <br> You've made it onto the Whitelist! <br></strong><br><strong style="color: #ffffff;background: #000000">📣 Tweet your excitement and you might just catch a FREE AIRDROP! 📣</strong><br><br><br>`;
 
 
 
 
             // Append the Twitter button to your desired location in the DOM
-            const message = "AHOY, me shipmates! I've joined the Whitelist crew. What's yer plan now, eh? 🏴‍☠️💎 #NFT #PixelCaptainz #Mint2023";
-            const hashtags = "NFT,PixelCaptainz,Mint2023";
-            const visualUrl = "https://raw.githubusercontent.com/mx1000m/ThePixelCaptainz/main/BOAT-4.png";
+            const message = "AHOY, me shipmates! I've joined the Whitelist crew. Where are you at, eh? 🏴‍☠️💎 #NFT #PixelCaptainz #Mint2023 @TheHornyland69";
+            const hashtags = "";
+            const visualUrl = "pic.twitter.com/HtsF37h8H1";
 
             const twitterButtonContainer = createTwitterButton(message, hashtags, visualUrl);
             messageContainer.appendChild(twitterButtonContainer); // Append the Twitter button to the message container
@@ -500,7 +528,7 @@ transition: background-color 0.3s, color 0.3s;
     messageContainer.appendChild(pepeImage);
 
     // Update the inner HTML with the message
-    messageContainer.innerHTML += `<br><strong style="color: #FF0000;background: #000000">Apologies... <br> It appears you haven't been whitelisted yet.</strong> <br><br><strong style="color: #FFFFFF;background: #000000">To join, simply like, RT, tag a friend, <br> comment your wallet address, and follow us <a href="https://twitter.com/TheHornyland69/status/1699513428329611436?s=20" target="_blank" style="color: white;">here</a></strong>.`;
+    messageContainer.innerHTML += `<br><strong style="color: #FF0000;background: #000000">Apologies... <br> It appears you haven't been whitelisted yet.</strong> <br><br><strong style="color: #FFFFFF;background: #000000">To join simply like, RT, tag a friend, <br> comment your wallet address, and follow us <a href="https://twitter.com/TheHornyland69/status/1699513428329611436?s=20" target="_blank" style="color: white;">here</a></strong>.`;
   }
 }
 

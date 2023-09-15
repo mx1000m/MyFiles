@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>The Pixel Captainz - Game</title>
+  <link rel="stylesheet" href="./style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏴&zwj;☠️</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@TheHornyland69">
+  <meta name="twitter:title" content="The Pixel Captainz">
+  <meta name="twitter:description" content="The Biggest Mast Game">
+  <meta name="twitter:image" content="URL_TO_YOUR_IMAGE">
+</head>
+<body>
+
+<div id="containerButton">
+<a id="tweet-button">TWEET your mast size for a FREE AIRDROP chance!</a>
+</div>
+
+
+<audio id="bgMusic" loop autoplay>
+    <source src="https://mx1000m.github.io/ThePixelCaptainz/pirate.m4a" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+<button id="musicToggle" onclick="toggleMusic()">Add Drama</button>
+
+
+
+
+<a href="index.html"><img src="https://github.com/mx1000m/ThePixelCaptainz/raw/068f14e8fb6aa75fbeeae16c2646997a5a936c31/pixelcaptainzlogo.png" alt="PixelCaptainz Logo" id="logo"></a>
+
+<!-- partial:index.partial.html -->
+<meta name="viewport" content="width=device-width,user-scalable=no">
+
+
+
+
+
+<div id="container">
+	<div id="game"></div>
+	<div id="score">0</div>
+	<div id="instructions">Click (or press the spacebar) to place each block.</div>
+	<div class="game-over">
+		<h2>Game Over</h2>
+		<p>Ye did well, but room to grow be endless, matey!.<br>Press SPACEBAR start again.<br></p>
+
+		
+	</div>
+	<div class="game-ready">
+		<div id="start-button">Ahoy shipmate! Test your pixel skills!<br> Stack as many cubes as you can and see how high you can raise the mast of your ship!<br><br>Press SPACEBAR to START!</div>
+ </div>
+
+
+
+		<div></div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+<div class="footer">
+
+  <p class="footer-text"><span style="font-weight: bold;">For memelords, by memelords. Anchored in laughter, sailing through humor's realm! ©2023 HornyLand.</span></p>
+  <div class="footer-icons">
+    <a href="https://twitter.com/TheHornyland69" target="_blank" class="footer-icon">
+      <img src="https://raw.githubusercontent.com/mx1000m/MyFiles/main/X.svg" alt="X Icon"/>
+    </a>
+    <a href="https://discord.gg/eKSxmjUba3" target="_blank" class="footer-icon">
+      <img src="https://raw.githubusercontent.com/mx1000m/MyFiles/main/discord.svg" alt="Discord Icon"/>
+    </a>
+    <a href="https://opensea.io/collection/the-pixel-captainz" target="_blank" class="footer-icon">
+      <img src="https://raw.githubusercontent.com/mx1000m/MyFiles/main/opensea.svg" alt="OpenSea Icon Icon"/>
+    </a>
+  </div>
+</div>
+
+
+
+
+
+<!-- partial -->
+  <script src='https://codepen.io/ste-vg/pen/zBVaZw.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r83/three.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js'></script><script  src="./script.js"></script>
+
+
+
+
+<script>
+  function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  function getRandomOpacity() {
+    return (getRandomInt(30, 85) / 100).toFixed(2); // Random opacity between 0.30 and 0.85
+  }
+
+  function createSquare() {
+    const square = document.createElement('div');
+    square.classList.add('square');
+    square.style.opacity = getRandomOpacity(); // Set random opacity
+    
+    document.body.appendChild(square);
+    
+    const viewportWidth = window.innerWidth;
+    const viewportHeight = window.innerHeight;
+    
+    const startX = getRandomInt(0, viewportWidth - 10);
+    const startY = getRandomInt(0, viewportHeight - 10);
+    square.style.left = `${startX}px`;
+    square.style.top = `${startY}px`;
+
+    const directionX = getRandomInt(-1, 1);
+    const directionY = getRandomInt(-1, 1);
+
+    let posX = startX;
+    let posY = startY;
+
+    const interval = setInterval(() => {
+      posX += directionX;
+      posY += directionY;
+      
+      square.style.left = `${posX}px`;
+      square.style.top = `${posY}px`;
+      
+      if (posX < -10 || posX > viewportWidth || posY < -10 || posY > viewportHeight) {
+        clearInterval(interval);
+        document.body.removeChild(square);
+      }
+    }, 50 + getRandomInt(0, 300));
+  }
+
+  // Create squares immediately and continue with interval
+  createSquare();
+  setInterval(createSquare, 150); // Change the interval to 150 milliseconds
+
+
+
+// Music
+function toggleMusic() {
+    var bgMusic = document.getElementById("bgMusic");
+
+    if (bgMusic.paused) {
+        bgMusic.play();
+    } else {
+        bgMusic.pause();
+    }
+}
+
+
+
+function startGame() {
+    if (state != STATES.PLAYING) {
+        scoreContainer.innerHTML = '0';
+        updateState(STATES.PLAYING);
+        addBlock();
+
+        // Hide the instruction text
+        instructionText.classList.add('hidden');
+    }
+}
+
+
+
+function toggleMusic() {
+    var bgMusic = document.getElementById("bgMusic");
+    var musicToggle = document.getElementById("musicToggle");
+
+    if (bgMusic.paused) {
+        bgMusic.play();
+        musicToggle.textContent = "Remove Drama"; // Change text when turned on
+    } else {
+        bgMusic.pause();
+        musicToggle.textContent = "Add Drama"; // Change text when turned off
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+document.addEventListener('keydown', e => {
+    if (e.keyCode === 32 && e.target !== musicToggle) {
+        e.preventDefault(); // Prevent space bar from activating the button
+    }
+});
+
+
+let lastButtonClickTime = 0;
+let buttonClickDelay = 500; // Adjust the delay time as needed (in milliseconds)
+
+musicToggle.addEventListener('click', () => {
+    const currentTime = new Date().getTime();
+    if (currentTime - lastButtonClickTime >= buttonClickDelay) {
+        toggleMusic();
+        lastButtonClickTime = currentTime;
+    }
+});
+
+document.addEventListener('keydown', e => {
+    if (e.keyCode === 32 && new Date().getTime() - lastButtonClickTime >= buttonClickDelay) {
+        toggleMusic();
+    }
+});
+
+let musicIsPlaying = false;
+
+function toggleMusic() {
+    var bgMusic = document.getElementById("bgMusic");
+    if (bgMusic.paused) {
+        bgMusic.play();
+        musicIsPlaying = true;
+        musicToggle.innerText = "Remove Drama"; // Change button text to "Remove Drama"
+    } else {
+        bgMusic.pause();
+        musicIsPlaying = false;
+        musicToggle.innerText = "Add Drama"; // Change button text to "Add Drama"
+    }
+}
+
+// Add event listeners for space bar and button click
+document.addEventListener('keydown', e => {
+    if ((e.keyCode === 32 || e.type === 'click') && !musicIsPlaying) {
+        toggleMusic();
+    }
+});
+
+// Function to start music automatically when the page loads
+function startMusicAutomatically() {
+    var bgMusic = document.getElementById("bgMusic");
+    if (!musicIsPlaying) {
+        bgMusic.play();
+        musicIsPlaying = true;
+        musicToggle.innerText = "Remove Drama"; // Change button text to "Remove Drama"
+    }
+}
+
+// Call the function to start music when the page loads
+startMusicAutomatically();
+
+
+
+
+
+
+
+
+
+
+
+// Function to create a few coins with fading animation
+function createCoinExplosion() {
+    const numCoins = 5; // Number of coins in the explosion
+
+    for (let i = 0; i < numCoins; i++) {
+        const coin = document.createElement('div');
+        coin.classList.add('coin');
+        coin.style.left = `${getRandomInt(0, window.innerWidth - 32)}px`; // Random horizontal position
+        coin.style.top = `${getRandomInt(0, window.innerHeight - 32)}px`; // Random vertical position
+        document.body.appendChild(coin);
+
+        coin.style.animation = 'coinFadeOut 2s forwards'; // Apply fading animation
+
+        // Remove the coin after a random delay
+        setTimeout(() => {
+            coin.remove();
+        }, getRandomInt(1000, 3000)); // Random delay between 1 to 3 seconds
+    }
+}
+
+// Add event listener for the space bar to trigger the coin explosion
+document.addEventListener('keydown', e => {
+    if (e.keyCode === 32) { // Check if the space bar is pressed
+        createCoinExplosion();
+    }
+});
+
+// Function to get a random integer between min and max
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+
+
+
+</script>
+
+
+</body>
+</html>

@@ -365,7 +365,7 @@ this.tweetButton.style.display = 'none'; // Hide the Tweet button when restartin
     const userScore = this.blocks.length - 1;
     const gameURL = 'https://thepixelcaptainz.com/game'; // Replace with your actual game URL
 const hashtags = 'PixelCaptainz #TheBiggestMast'; // Replace with your desired hashtags
-const twitterHandle = 'TheHornyLand69'; // Replace with your Twitter handle
+const twitterHandle = 'TheHornyland69'; // Replace with your Twitter handle
 
 // Encode the hashtags and Twitter handle
 const encodedHashtags = encodeURIComponent(hashtags);

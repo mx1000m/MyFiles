@@ -6,6 +6,8 @@
     <title>The Pixel Captainz</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏴&zwj;☠️</text></svg>">
     <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,700;1,400;1,500;1,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
 <!-- Add this script to the head section -->
 <script src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     <meta name="twitter:card" content="summary_large_image">
@@ -295,10 +297,126 @@ transition: background-color 0.3s, color 0.3s;
 
 
 
+
+
+
+
+
+
+  .hamburger-menu {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    margin-right: 20px;
+    position: fixed; /* Fix the position */
+    top: 20px; /* Adjust the top position */
+    right: 20px; /* Adjust the right position */
+    z-index: 999; /* Ensure it's above other elements */
+  }
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 3px 0;
+  transition: 0.4s;
+z-index: 10000;
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none; /* Set pointer-events to none initially */
+  z-index: 10000;
+transition: all 0.3s ease;
+}
+
+
+.menu {
+font-family: 'Rubik';
+line-height: 1.5;
+letter-spacing: 1px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+z-index: 10000;
+}
+
+.menu a {
+  display: block;
+  font-size: 24px;
+  color: white;
+  text-decoration: none;
+  margin: 20px;
+  transition: 0.3s;
+z-index: 10000;
+cursor: pointer;
+}
+
+.menu a:hover {
+  color: #fb0cf5; /* Change the color on hover */
+
+z-index: 10000;
+}
+
+
+/* Add styles for the close button */
+
+
+.close-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+z-index: 10000;
+}
+
+
+
+
+
+
+
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+
+
+
+
+
+<div class="hamburger-menu">
+  <div class="bar"></div>
+  <div class="bar"></div>
+  <div class="bar"></div>
+</div>
+<div class="overlay">
+  <div class="menu">
+    <a href="index.html">Home</a>
+    <a href="project.html">Project</a>
+    <a href="mint.html">Mint</a>
+    <a href="game.html">The Biggest Mast</a>
+  </div>
+</div>
+
+
+
+
+
+
+
 <div class="container">
     <a href="index.html"><img src="https://github.com/mx1000m/MyFiles/raw/f8f85f9468bbf23acbc175cecc3b67884f0ec969/pixelcaptainzlogo.png" alt="Logo" class="logo"></a>
     <p><br></p>
@@ -564,6 +682,49 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+
+
+
+
+
+
+
+
+
+
+
+const hamburgerMenu = document.querySelector('.hamburger-menu');
+const overlay = document.querySelector('.overlay');
+
+hamburgerMenu.addEventListener('click', () => {
+  overlay.style.display = 'block';
+  overlay.style.pointerEvents = 'auto'; // Enable pointer events when displaying the overlay
+  setTimeout(() => {
+    overlay.style.opacity = '1';
+  }, 10);
+});
+
+overlay.addEventListener('click', (event) => {
+  if (event.target === overlay) {
+    overlay.style.opacity = '0';
+    overlay.style.pointerEvents = 'none'; // Disable pointer events when hiding the overlay
+    setTimeout(() => {
+      overlay.style.display = 'none';
+    }, 300);
+  }
+});
+
+const menuLinks = document.querySelectorAll('.menu a');
+
+menuLinks.forEach((link) => {
+  link.addEventListener('click', () => {
+    overlay.style.opacity = '0';
+    overlay.style.pointerEvents = 'none'; // Disable pointer events when hiding the overlay
+    setTimeout(() => {
+      overlay.style.display = 'none';
+    }, 300);
+  });
+});
 
 
 </script>

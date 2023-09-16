@@ -365,7 +365,7 @@ this.tweetButton.style.display = 'none'; // Hide the Tweet button when restartin
     const userScore = this.blocks.length - 1;
     const gameURL = 'https://thepixelcaptainz.com/game'; // Replace with your actual game URL
 const hashtags = 'PixelCaptainz #TheBiggestMast'; // Replace with your desired hashtags
-const twitterHandle = 'TheHornyland69'; // Replace with your Twitter handle
+const twitterHandle = 'TheHornyLand69'; // Replace with your Twitter handle
 
 // Encode the hashtags and Twitter handle
 const encodedHashtags = encodeURIComponent(hashtags);
@@ -390,4 +390,36 @@ let game = new Game();
 
 
 
+const hamburgerMenu = document.querySelector('.hamburger-menu');
+const overlay = document.querySelector('.overlay');
+
+hamburgerMenu.addEventListener('click', () => {
+  overlay.style.display = 'block';
+  overlay.style.pointerEvents = 'auto'; // Enable pointer events when displaying the overlay
+  setTimeout(() => {
+    overlay.style.opacity = '1';
+  }, 10);
+});
+
+overlay.addEventListener('click', (event) => {
+  if (event.target === overlay) {
+    overlay.style.opacity = '0';
+    overlay.style.pointerEvents = 'none'; // Disable pointer events when hiding the overlay
+    setTimeout(() => {
+      overlay.style.display = 'none';
+    }, 300);
+  }
+});
+
+const menuLinks = document.querySelectorAll('.menu a');
+
+menuLinks.forEach((link) => {
+  link.addEventListener('click', () => {
+    overlay.style.opacity = '0';
+    overlay.style.pointerEvents = 'none'; // Disable pointer events when hiding the overlay
+    setTimeout(() => {
+      overlay.style.display = 'none';
+    }, 300);
+  });
+});
 

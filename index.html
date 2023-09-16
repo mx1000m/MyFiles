@@ -9,6 +9,13 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
+<!-- Add this script to the head section -->
+<script src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@TheHornyland69">
+    <meta name="twitter:title" content="The Pixel Captainz">
+    <meta name="twitter:description" content="Welcome to a Pixel Odyssey!">
+    <meta name="twitter:image" content="https://github.com/mx1000m/ThePixelCaptainz/raw/7676241c4fb0ac09373f0878f0043ebce7931794/PIXELCAPTAINZAHOY.gif">
 <style>
   html, body {
     overflow-x: hidden; /* Prevent horizontal scrolling */
@@ -234,14 +241,116 @@ margin-top: -20px;
   }
 
 
+
+
+
+
+
+
+  .hamburger-menu {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    margin-right: 20px;
+    position: fixed; /* Fix the position */
+    top: 20px; /* Adjust the top position */
+    right: 20px; /* Adjust the right position */
+    z-index: 999; /* Ensure it's above other elements */
+  }
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 3px 0;
+  transition: 0.4s;
+z-index: 10000;
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none; /* Set pointer-events to none initially */
+  z-index: 10000;
+transition: all 0.3s ease;
+}
+
+
+.menu {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+z-index: 10000;
+}
+
+.menu a {
+  display: block;
+  font-size: 24px;
+  color: white;
+  text-decoration: none;
+  margin: 20px;
+  transition: 0.3s;
+z-index: 10000;
+cursor: pointer;
+}
+
+.menu a:hover {
+  color: #fb0cf5; /* Change the color on hover */
+
+z-index: 10000;
+}
+
+
+/* Add styles for the close button */
+
+
+.close-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+z-index: 10000;
+}
+
+
+
+
 </style>
-</style>
+
 </head>
 
+
+
+
 <body>
 
 
-<body>
+<div class="hamburger-menu">
+  <div class="bar"></div>
+  <div class="bar"></div>
+  <div class="bar"></div>
+</div>
+<div class="overlay">
+  <div class="menu">
+    <a href="project.html">Project</a>
+    <a href="mint.html">Mint</a>
+    <a href="Wallet-checker.html">Wallet Checker</a>
+    <a href="game.html">Game</a>
+  </div>
+</div>
+
+
 <div class="container centered">
   <img src="https://github.com/mx1000m/MyFiles/raw/f8f85f9468bbf23acbc175cecc3b67884f0ec969/pixelcaptainzlogo.png" alt="Logo" class="logo">
   <img src="https://github.com/mx1000m/ThePixelCaptainz/raw/0171242ba26d1ed8c56d4e8a1a2e3261146f320f/box2.gif" alt="pre-reveal" class="box-image">
@@ -274,7 +383,6 @@ margin-top: -20px;
 </div>
 
 <script>
-
 
 
 
@@ -370,6 +478,49 @@ function moveBoatAndCoins() {
 }
 
 moveBoatAndCoins();
+
+
+
+
+
+
+
+
+const hamburgerMenu = document.querySelector('.hamburger-menu');
+const overlay = document.querySelector('.overlay');
+
+hamburgerMenu.addEventListener('click', () => {
+  overlay.style.display = 'block';
+  overlay.style.pointerEvents = 'auto'; // Enable pointer events when displaying the overlay
+  setTimeout(() => {
+    overlay.style.opacity = '1';
+  }, 10);
+});
+
+overlay.addEventListener('click', (event) => {
+  if (event.target === overlay) {
+    overlay.style.opacity = '0';
+    overlay.style.pointerEvents = 'none'; // Disable pointer events when hiding the overlay
+    setTimeout(() => {
+      overlay.style.display = 'none';
+    }, 300);
+  }
+});
+
+const menuLinks = document.querySelectorAll('.menu a');
+
+menuLinks.forEach((link) => {
+  link.addEventListener('click', () => {
+    overlay.style.opacity = '0';
+    overlay.style.pointerEvents = 'none'; // Disable pointer events when hiding the overlay
+    setTimeout(() => {
+      overlay.style.display = 'none';
+    }, 300);
+  });
+});
+
+
+
 </script>
 </body>
 </html>

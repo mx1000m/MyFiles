@@ -370,7 +370,7 @@ const twitterHandle = 'TheHornyLand69'; // Replace with your Twitter handle
 // Encode the hashtags and Twitter handle
 const encodedHashtags = encodeURIComponent(hashtags);
 const encodedTwitterHandle = encodeURIComponent(twitterHandle);
-const visualUrl = "pic.twitter.com/HtsF37h8H1"; // Replace with the actual URL of your visual
+const visualUrl = "pic.twitter.com/rjpOQY2zqZ"; // Replace with the actual URL of your visual
 
 tweetButton.href = `https://twitter.com/intent/tweet?text=🏴‍☠️🪵Ahoy, me mast be stretchin' to ${userScore - 1}%20pixels!👀%0A%0AReady to take on the challenge for a chance at a FREE AIRDROP, matey?%0A%0A->${gameURL}%0A%0A%23${encodedHashtags} @${encodedTwitterHandle}&url=${visualUrl}`;
 tweetButton.target = '_blank';

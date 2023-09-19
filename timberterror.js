@@ -86,6 +86,9 @@ window.onload = function () {
 
     document.addEventListener("keydown", moveBird);
     document.addEventListener("keyup", resetBirdImage); // Listen for space bar release
+
+    // Add touch event listener for mobile devices
+    document.addEventListener("touchstart", moveBirdMobile);
 }
 
 function update() {
@@ -200,24 +203,21 @@ function update() {
         const restartButton = document.getElementById('restart-button');
         restartButton.style.display = 'block';
 
+        // Set the href attribute with the user's score and other information
+        const userScore = score;
+        const gameURL = 'https://thepixelcaptainz.com/timberterror1.html'; // Replace with your actual game URL
+        const visualUrl = "pic.twitter.com/5gfzm4OHnE"; // Replace with the actual URL of your visual
 
-// Set the href attribute with the user's score and other information
-const userScore = score;
-const gameURL = 'https://thepixelcaptainz.com/timberterrorgame.html'; // Replace with your actual game URL
-const visualUrl = "pic.twitter.com/5gfzm4OHnE"; // Replace with the actual URL of your visual
+        // Encode hashtags as %23
+        const hashtags = '%23PixelCaptainz %23TimberTerror';
 
-// Encode hashtags as %23
-const hashtags = '%23PixelCaptainz %23TimberTerror';
+        // Add Twitter mention
+        const mention = '@TheHornyLand69';
 
-// Add Twitter mention
-const mention = '@TheHornyLand69';
-
-tweetButton.href = `https://twitter.com/intent/tweet?text=Ahoy! Me ship dodged ${userScore} logs – more than a beaver in a lumberyard! 🏴‍☠️⚓%0A%0AUp for the challenge for a chance at a FREE AIRDROP?%0A%0A -> ${gameURL} %0A%0A${visualUrl} %0A%0A${hashtags} ${mention}`;
-tweetButton.target = '_blank';
+        tweetButton.href = `https://twitter.com/intent/tweet?text=Ahoy! Me ship dodged ${userScore} logs – more than a beaver in a lumberyard! 🏴‍☠️⚓%0A%0AUp for the challenge for a chance at a FREE AIRDROP?%0A%0A -> ${gameURL} %0A%0A${visualUrl} %0A%0A${hashtags} ${mention}`;
+        tweetButton.target = '_blank';
 
         restartButton.href = `timberterror.html`;
-
-
     }
 }
 
@@ -302,7 +302,7 @@ function restartGame() {
         // Reset the speed and pipe interval
         velocityX = initialVelocityX;
         initialPipeInterval = 1500;
-        
+
         // Clear the current interval and set a new one
         clearInterval(pipePlacementInterval);
         pipePlacementInterval = setInterval(placePipes, initialPipeInterval);
@@ -314,7 +314,6 @@ function restartGame() {
         requestAnimationFrame(update);
     }
 }
-
 
 function resetBirdImage(e) {
     if (e.code == "Space" || e.code == "ArrowUp" || e.code == "KeyX") {

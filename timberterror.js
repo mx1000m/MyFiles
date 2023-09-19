@@ -204,7 +204,7 @@ function update() {
 // Set the href attribute with the user's score and other information
 const userScore = score;
 const gameURL = 'https://thepixelcaptainz.com/timberterrorgame.html'; // Replace with your actual game URL
-const visualUrl = "pic.twitter.com/HtsF37h8H1"; // Replace with the actual URL of your visual
+const visualUrl = "pic.twitter.com/5gfzm4OHnE"; // Replace with the actual URL of your visual
 
 // Encode hashtags as %23
 const hashtags = '%23PixelCaptainz %23TimberTerror';

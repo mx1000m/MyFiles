@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport", content="width=device-width, initial-scale=1.0">
+        <title>Timber Terror: Pirate's Escape</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏴&zwj;☠️</text></svg>">
+        <link rel="stylesheet" href="timberterror.css">
+        <script src="timberterror.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,700;1,400;1,500;1,600&display=swap" rel="stylesheet">
+
+<!-- Add this script to the head section -->
+<script src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@TheHornyland69">
+    <meta name="twitter:title" content="The Pixel Captainz">
+    <meta name="twitter:description" content="Timber Terror: Pirate's Escape - The second challenge game of The Pixel Captainz!">
+    <meta name="twitter:image" content="https://github.com/mx1000m/ThePixelCaptainz/raw/7676241c4fb0ac09373f0878f0043ebce7931794/PIXELCAPTAINZAHOY.gif">
+
+<style>
+  html, body {
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+  }
+
+  body {
+    margin: 0;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+
+
+
+
+
+  .logo {
+    margin-top: 5px;
+    margin-bottom: 2px;
+    width: 150px;
+    height: auto;
+    z-index: 1; /* Ensure the logo is above other content */
+  }
+
+
+
+  .body-text {
+text-align: center;
+max-width: 700px;
+    font-size: 18px;
+    line-height: 1.618; /* Golden ratio for line height */
+background-color: rgba(0, 0, 0, 0.7);
+  }
+
+
+
+
+
+
+  .separator {
+    width: 100%;
+    height: 1px;
+    background-color: white;
+    margin-top: 20px;
+  }
+
+  .separatorsmall {
+    width: 20%;
+    height: 2px;
+    background-color: white;
+Margin-left: 40%;
+margin-right: 60%;
+    margin-top: 8px;
+  }
+
+  .footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: auto; /* Positioned at the bottom */
+    font-family: 'Roboto', sans-serif; /* Google Font */
+    color: white; /* Set the text color to white */
+    text-align: center;
+    padding: 20px;
+  }
+
+  .footer-text {
+    font-size: 14px;
+    margin-bottom: 10px; /* Add margin below the text */
+  }
+
+  .footer-icons {
+    display: flex;
+    align-items: center;
+margin-top: 8px;
+  }
+
+  .footer-icon {
+    cursor: pointer;
+    margin: 0 5px; /* Add margin around the icons */
+  }
+
+  .footer-icon img {
+    width: 30px;
+    height: 30px;
+  }
+
+
+
+
+
+
+  .hamburger-menu {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    margin-right: 20px;
+    position: fixed; /* Fix the position */
+    top: 20px; /* Adjust the top position */
+    right: 20px; /* Adjust the right position */
+    z-index: 999; /* Ensure it's above other elements */
+  }
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 3px 0;
+  transition: 0.4s;
+z-index: 10000;
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none; /* Set pointer-events to none initially */
+  z-index: 10000;
+transition: all 0.3s ease;
+}
+
+
+.menu {
+font-family: 'Rubik';
+line-height: 1.5;
+letter-spacing: 1px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+z-index: 10000;
+}
+
+.menu a {
+  display: block;
+  font-size: 24px;
+  color: white;
+  text-decoration: none;
+  margin: 20px;
+  transition: 0.3s;
+z-index: 10000;
+cursor: pointer;
+}
+
+.menu a:hover {
+  color: #fb0cf5; /* Change the color on hover */
+
+z-index: 10000;
+}
+
+
+/* Add styles for the close button */
+
+
+.close-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+z-index: 10000;
+}
+
+
+
+
+
+
+
+
+</style>
+    </head>
+ <body>
+
+<div class="hamburger-menu">
+  <div class="bar"></div>
+  <div class="bar"></div>
+  <div class="bar"></div>
+</div>
+<div class="overlay">
+  <div class="menu">
+    <a href="index.html">Home</a>
+    <a href="mint.html">Mint</a>
+<a href="project.html">Project</a>
+    <a href="Wallet-checker.html">Wallet Checker</a>
+    <a href="game.html">The Biggest Mast</a>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+<div id="containerButton">
+<a id="restart-button">RESTART!</a>
+</div>
+
+
+<div id="containerButton">
+<a id="tweet-button">TWEET IT!</a>
+</div>
+
+
+<div class="container">
+  <a href="index.html"><img src="https://github.com/mx1000m/MyFiles/raw/f8f85f9468bbf23acbc175cecc3b67884f0ec969/pixelcaptainzlogo.png" alt="Logo" class="logo"></a>
+</div>
+
+
+
+
+   
+        <canvas id="board"></canvas>
+   
+
+
+
+
+
+  <div class="footer-icons">
+    <a href="https://twitter.com/TheHornyland69" target="_blank" class="footer-icon">
+      <img src="https://raw.githubusercontent.com/mx1000m/MyFiles/main/X.svg" alt="Twitter Icon"/>
+    </a>
+    <a href="https://discord.gg/eKSxmjUba3" target="_blank" class="footer-icon">
+      <img src="https://raw.githubusercontent.com/mx1000m/MyFiles/main/discord.svg" alt="Discord Icon"/>
+    </a>
+<a href="https://opensea.io/collection/the-pixel-captainz" target="_blank" class="footer-icon">
+      <img src="https://raw.githubusercontent.com/mx1000m/MyFiles/main/opensea.svg" alt="OpenSea Icon Icon"/>
+    </a>
+  </div>
+</div>
+
+<script>
+ 
+
+
+
+
+
+
+const hamburgerMenu = document.querySelector('.hamburger-menu');
+const overlay = document.querySelector('.overlay');
+
+hamburgerMenu.addEventListener('click', () => {
+  overlay.style.display = 'block';
+  overlay.style.pointerEvents = 'auto'; // Enable pointer events when displaying the overlay
+  setTimeout(() => {
+    overlay.style.opacity = '1';
+  }, 10);
+});
+
+overlay.addEventListener('click', (event) => {
+  if (event.target === overlay) {
+    overlay.style.opacity = '0';
+    overlay.style.pointerEvents = 'none'; // Disable pointer events when hiding the overlay
+    setTimeout(() => {
+      overlay.style.display = 'none';
+    }, 300);
+  }
+});
+
+const menuLinks = document.querySelectorAll('.menu a');
+
+menuLinks.forEach((link) => {
+  link.addEventListener('click', () => {
+    overlay.style.opacity = '0';
+    overlay.style.pointerEvents = 'none'; // Disable pointer events when hiding the overlay
+    setTimeout(() => {
+      overlay.style.display = 'none';
+    }, 300);
+  });
+});
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+body {
+    font-family: 'VT323', Courier, monospace;
+    text-align: center;
+    overflow: hidden;
+    position: relative; /* Ensure the body is a positioned container */
+}
+
+#board {
+    background-image: url("./water.gif");
+    background-repeat: repeat; /* Repeat the background image horizontally */
+    background-position: 100% 0; /* Start the background image on the right side */
+    position: relative; /* Position the #board container relative to the body */
+    position: relative;
+    z-index: 0;
+    /* Define the animation */
+    animation: moveBackground 8s linear infinite;
+}
+
+
+/* Define the animation keyframes */
+@keyframes moveBackground {
+    0% {
+        background-position: 100% 0;
+    }
+    100% {
+        background-position: 0 0;
+    }
+}
+
+
+
+
+#tweet-button {
+  position: absolute;
+  top: 81%;
+left: 50%;
+
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+
+  text-align: center;
+font-family: 'Rubik', sans-serif; /* Google Font */
+  background-color: #ffffff; /* Black background color */
+  padding: 5px 10px; /* Add some horizontal padding for better visual appearance */
+text-decoration: none;
+  color: #000000; /* White text color */
+  border: 1px solid #fff; /* White border */
+  border-radius: 5px;
+display: none; /* Hide the button by default */
+  z-index: 9999;
+  transition: background-color 0.3s, color 0.3s, transform 0.2s; /* Add transitions for background-color, color, and transform */
+}
+
+#tweet-button:hover {
+  background-color: #000000; /* black background color on hover */
+  color: #ffffff; /* white text color on hover */
+border: 1px solid #ffffff; /* White border */
+}
+
+#tweet-button:active {
+  transform: scale(0.95); /* Slight scaling down on click to create a pressing effect */
+}
+
+
+
+
+
+
+
+
+
+
+#restart-button {
+  position: absolute;
+  top: 87%;
+left: 50%;
+
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+
+  text-align: center;
+font-family: 'Rubik', sans-serif; /* Google Font */
+  background-color: #ffffff; /* Black background color */
+  padding: 5px 10px; /* Add some horizontal padding for better visual appearance */
+text-decoration: none;
+  color: #000000; /* White text color */
+  border: 1px solid #fff; /* White border */
+  border-radius: 5px;
+display: none; /* Hide the button by default */
+  z-index: 9999;
+  transition: background-color 0.3s, color 0.3s, transform 0.2s; /* Add transitions for background-color, color, and transform */
+}
+
+#restart-button:hover {
+  background-color: #000000; /* black background color on hover */
+  color: #ffffff; /* white text color on hover */
+border: 1px solid #ffffff; /* White border */
+}
+
+#restart-button:active {
+  transform: scale(0.95); /* Slight scaling down on click to create a pressing effect */
+}

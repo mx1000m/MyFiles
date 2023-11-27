@@ -12,518 +12,226 @@
 <!-- Add this script to the head section -->
 <script src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@TheHornyland69">
+    <meta name="twitter:site" content="@Pixel_Captainz">
     <meta name="twitter:title" content="The Pixel Captainz">
-    <meta name="twitter:description" content="Welcome to a Pixel Odyssey!">
-    <meta name="twitter:image" content="https://github.com/mx1000m/ThePixelCaptainz/raw/7676241c4fb0ac09373f0878f0043ebce7931794/PIXELCAPTAINZAHOY.gif">
-<style>
-  html, body {
-    overflow-x: hidden; /* Prevent horizontal scrolling */
+    <meta name="twitter:description" content="A Pixel Odyssey like no other!">
+    <meta name="twitter:image" content="https://github.com/mx1000m/ThePixelCaptainz/raw/c0c049be87d346442a9bbaba66767187b019f4f1/PixelCaptainzMeta.jpg">
+
+
+
+
+ <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background: url('logoback.gif') no-repeat fixed center center;
+            background-size: cover; /* 80% auto; Set the background size to 80% of the viewport width */
+        }
+
+/* SIDE TEXT GIF PIXEL CAPTAINZ */
+        #tag {
+            position: fixed;
+            top: 0%; /* Adjusted top position for better visibility */
+            left: 0%; /* Adjusted left position for better visibility */
+            width: 50%; /* Set the width to 80% of the viewport width */
+            height: 50%; /* Set the height to 80% of the viewport height */
+            pointer-events: none; /* Ensures the tag doesn't interfere with user interactions */
+        }
+
+  #tag2 {
+    position: fixed;
+    top: 0%;
+    right: -47%;
+    width: 50%;
+    height: 50%;
+    pointer-events: none;
   }
 
-  body {
-    margin: 0;
-    background-color: black;
+
+
+    /* Footer Styles */
+    .footer {
     display: flex;
     flex-direction: column;
-    align-items: center;
-  }
-
-  .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .logo {
-    margin-top: 20px;
-    margin-bottom: 40px;
-    width: 400px;
-    height: auto;
-    z-index: 1; /* Ensure the logo is above other content */
-  }
-
-  .box-image {
-    margin-top: -30px;
-    margin-bottom: 20px;
-    width: 200px;
-    height: auto;
-    z-index: 1; /* Ensure the box image is above other content */
-  }
-
-  /* Add a class for the button container */
-  .button-container {
-    display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 20px;
-  }
-
-  /* Style the buttons */
-  .button {
-transition-duration: 0.2s;
-border-radius: 2px;
-    font-family: 'Rubik';
-    background-color: #000000;
-    color: #ffffff;
-    padding: 10px 20px;
-    margin: 0 10px;
-    cursor: pointer;
-    border-style: solid;
-    border-width: 2px;
-    border-color: #ffffff;
-    font-color: #ffffff;
-  }
-
-.button:hover {
-  background-color: #ffffff; /* Green */
-  color: black;
-}
-
-
-
-
-  .main-text {
-    font-family: 'Rubik', sans-serif;
-    color: white;
-    text-align: center;
-    padding: 20px;
-  }
-
-  .title {
-    font-weight: bold;
-    font-size: 30px;
-    background-color: rgba(0, 0, 0, 0.7);
-  }
-
-
-  .body-text {
-text-align: center;
-max-width: 700px;
-    font-size: 18px;
-    line-height: 1.618; /* Golden ratio for line height */
-background-color: rgba(0, 0, 0, 0.7);
-  }
-
-  .square {
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    background-color: white;
-    opacity: 0.5;
-    z-index: -1; /* Send the squares behind other elements */
-  }
-
-  .separator {
+    position: fixed; /* Fixed position */
+    bottom: 0px; /* 5px from the bottom */
     width: 100%;
-    height: 1px;
-    background-color: white;
-    margin-top: -8px;
-  }
-
-  .separatorsmall {
-    width: 20%;
-    height: 2px;
-    background-color: white;
-Margin-left: 40%;
-margin-right: 60%;
-    margin-top: 8px;
-  }
-
-  .footer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: auto; /* Positioned at the bottom */
     font-family: 'Roboto', sans-serif; /* Google Font */
     color: white; /* Set the text color to white */
     text-align: center;
-    padding: 20px;
-  }
-
-  .footer-text {
-    font-size: 14px;
-    margin-bottom: 10px; /* Add margin below the text */
-  }
-
-  .footer-icons {
+    padding: 15px;
+    font-size: 14px; /* Adjusted font size */
+}
+.footer-icons {
     display: flex;
     align-items: center;
-  }
-
-  .footer-icon {
     cursor: pointer;
-    margin: 0 5px; /* Add margin around the icons */
-  }
-
+    margin: -10px 5px 0 5px; /* Adjusted margin values */
+}
   .footer-icon img {
     width: 30px;
     height: 30px;
   }
 
-
-
-  .boat-image {
-    position: absolute;
-    bottom: 0px; /* Adjust the bottom position to align with the top of the separator */
-    width: 500px;
-    height: auto;
-  }
-
-
-
-
-
-
-
-
-  .coins-image {
-    position: absolute;
-    bottom: 0px; /* Adjust the bottom position to align with the top of the separator */
-    width: 80px;
-    height: auto;
-    left: -90px; /* Position the coin image to the left of the boat image */
-  }
-
-  .boat-and-coins {
-    display: flex;
-    position: absolute;
-    bottom: 28px; /* Adjust the bottom position to align with the top of the separator */
-  }
+    /* Centered Button Styles */
+    .centered-button {
+        position: fixed;
+        top: 70%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-family: 'Roboto', sans-serif;
+        color: white;
+        border: 3px solid white;
+        padding: 10px 20px;
+        cursor: pointer;
+        background-color: transparent;
+        text-align: center; /* Center the text */
+    }
 
 
 
 
-@media only screen and (max-width: 600px) {
-  .boat-and-coins {
-    bottom: 0px;
-  }
+
+
+
+/*  MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE*/
+@media (max-width: 768px) {
+  body {
+        margin: 0;
+        overflow: hidden;
+        background: url('logoback.gif') no-repeat fixed center;
+        background-size: cover;
+        background-size: 300%; /* Adjusted background size */
+        background-position-y: 10%; /* Adjusted background position */
+        background-position-x: 50%; /* Adjusted background position */
+    }
+        .centered-button {
+            top: 65%; /* Adjusted top position for mobile */
+            line-height: 1.5; /* Adjusted line height */
+            text-transform: uppercase;
+            padding: 13px 15px;
+            white-space: nowrap; /* Prevents line breaks within the text */
+            border: 2px solid white;
+            font-size: 14px; /* Adjusted font size */
+        }
+
+        .footer {
+          font-size: 11px; /* Adjusted font size */
+            line-height: 1.5; /* Adjusted line height */
+            margin: 0px 0px 10px 0px; /* Adjusted margin values */
+            padding: 25px;
+        }
+        
+        #tag {
+            position: fixed;
+            top: 0%; /* Adjusted top position for better visibility */
+            left: -2%; /* Adjusted left position for better visibility */
+            pointer-events: none; /* Ensures the tag doesn't interfere with user interactions */
+        }
+        #tag img {
+    width: 20%; /* Set the width to your desired size */
+    height: auto; /* Maintain aspect ratio */
 }
-
-
-
-
-
-
-
-
+        #tag2 {
+    position: fixed;
+    top: 0%;
+    right: -42%;
+    pointer-events: none;
+  }
+  #tag2 img {
+    width: 20%; /* Set the width to your desired size */
+    height: auto; /* Maintain aspect ratio */
+}
  
-
-  /* Center the text and logo */
-  .centered {
-margin-top: -20px;
+        .footer-icons {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
-    height: 100vh;
-    text-align: center;
-  }
-
-  /* Define CSS animations */
-  @keyframes fadein {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-
-  @keyframes zoomout {
-    from {
-      transform: scale(2);
-    }
-    to {
-      transform: scale(1);
-    }
-  }
-
-
-
-
-
-
-
-
-  .hamburger-menu {
-    display: flex;
-    flex-direction: column;
     cursor: pointer;
-    margin-right: 20px;
-    position: fixed; /* Fix the position */
-    top: 20px; /* Adjust the top position */
-    right: 20px; /* Adjust the right position */
-    z-index: 999; /* Ensure it's above other elements */
+    margin: -5px 5px 0 5px; /* Adjusted margin values */
+}
+        .footer-icon img {
+    width: 25px;
+    height: 25px;
+    }
   }
 
-.bar {
-  width: 25px;
-  height: 3px;
-  background-color: white;
-  margin: 3px 0;
-  transition: 0.4s;
-z-index: 10000;
-}
-
-.overlay {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
-  z-index: 9999;
-  opacity: 0;
-  pointer-events: none; /* Set pointer-events to none initially */
-  z-index: 10000;
-transition: all 0.3s ease;
-}
-
-
-.menu {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-z-index: 10000;
-}
-
-.menu a {
-  display: block;
-  font-size: 24px;
-  color: white;
-  text-decoration: none;
-  margin: 20px;
-  transition: 0.3s;
-z-index: 10000;
-cursor: pointer;
-}
-
-.menu a:hover {
-  color: #fb0cf5; /* Change the color on hover */
-
-z-index: 10000;
-}
-
-
-/* Add styles for the close button */
-
-
-.close-button {
-  position: absolute;
-  top: 0;
-  right: 0;
-  font-size: 24px;
-  color: white;
-  cursor: pointer;
-z-index: 10000;
-}
 
 
 
-
-</style>
+  
+    </style>
 
 </head>
 
 
 
 
+
+
+
+
+
 <body>
+    <div id="tag"></div>
+    <div id="tag2"></div>
 
+    <!-- BUTTON CENTER -->
+    <div class="centered-button glitch" onclick="alert('More info coming soon')">More info coming soon
+      </div>
 
-<div class="hamburger-menu">
-  <div class="bar"></div>
-  <div class="bar"></div>
-  <div class="bar"></div>
-</div>
-<div class="overlay">
-  <div class="menu">
-    <a href="project.html">Project</a>
-    <a href="mint.html">Mint</a>
-    <a href="Wallet-Checker.html">Wallet Checker</a>
-    <a href="game.html">The Biggest Mast</a>
- <a href="timberterrorgame.html">Timber Terror</a>
-  </div>
-</div>
-
-
-
-<div class="container centered">
-  <img src="https://github.com/mx1000m/MyFiles/raw/f8f85f9468bbf23acbc175cecc3b67884f0ec969/pixelcaptainzlogo.png" alt="Logo" class="logo">
-  <img src="https://github.com/mx1000m/ThePixelCaptainz/raw/0171242ba26d1ed8c56d4e8a1a2e3261146f320f/box2.gif" alt="pre-reveal" class="box-image">
-  <div class="button-container">
-    <button class="button" onclick="location.href='project.html'">Learn More</button>
-    <button class="button" onclick="location.href='https://pixel-captainz-claim.webmint.io/'">&nbsp; Claim Now &nbsp;</button>
-  </div>
-</div>
-
-<div class="boat-and-coins">
-  <img src="https://github.com/mx1000m/ThePixelCaptainz/raw/3b2c7641138cb97aaaebd7f96c332a678136d92e/COINS-3.gif" alt="Coins" class="coins-image">
-  <img src="https://github.com/mx1000m/ThePixelCaptainz/raw/12d5fdbd5a8242405b3302e6579e7a2f2d676034/BOAT-4.png" alt="Boat" class="boat-image">
-</div>
-
-<div class="separator"></div>
-
-<div class="footer">
-  <p class="footer-text"><span style="font-weight: bold;">For memelords, by memelords. Anchored in laughter, sailing through humor's realm! ©2023 HornyLand.</span></p>
-  <div class="footer-icons">
-    <a href="https://twitter.com/TheHornyland69" target="_blank" class="footer-icon">
-      <img src="https://raw.githubusercontent.com/mx1000m/MyFiles/main/X.svg" alt="X Icon"/>
-    </a>
-    <a href="https://discord.gg/eKSxmjUba3" target="_blank" class="footer-icon">
-      <img src="https://raw.githubusercontent.com/mx1000m/MyFiles/main/discord.svg" alt="Discord Icon"/>
-    </a>
-    <a href="https://opensea.io/collection/the-pixel-captainz" target="_blank" class="footer-icon">
-      <img src="https://raw.githubusercontent.com/mx1000m/MyFiles/main/opensea.svg" alt="OpenSea Icon Icon"/>
-    </a>
-
-  </div>
-</div>
-
-<script>
-
-
-
-
-
-
-
-
-
-  // Zoom out the logo and slide it up after 1 second
-  setTimeout(function() {
-    const logo = document.querySelector('.logo');
-    logo.style.display = 'block';
-    logo.style.animation = 'zoomout 1s forwards';
-  });
-
-
+    
+<!-- HAMBURGER MENU -->
 
  
+<!-- BUTTONS -->
 
 
-
-
-
-  function getRandomInt(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-  }
-
-  function getRandomOpacity() {
-    return (getRandomInt(30, 85) / 100).toFixed(2); // Random opacity between 0.30 and 0.85
-  }
-
-  function createSquare() {
-    const square = document.createElement('div');
-    square.classList.add('square');
-    square.style.opacity = getRandomOpacity(); // Set random opacity
+<!-- FOOTER -->
+    <div class="footer">
+      <p style="font-weight: bold;">For memelords, by memelords. Anchored in laughter, sailing through humor's realm! ©2023 The Pixel Captainz.</p>
+      <div class="footer-icons">
+        <a href="https://twitter.com/Pixel_Captainz" target="_blank" class="footer-icon">
+          <img src="https://raw.githubusercontent.com/mx1000m/MyFiles/main/X.svg" alt="X Icon"/>
+        </a>
+        <a href="https://discord.gg/eKSxmjUba3" target="_blank" class="footer-icon">
+          <img src="https://raw.githubusercontent.com/mx1000m/MyFiles/main/discord.svg" alt="Discord Icon"/>
+        </a>
+        <a href="https://opensea.io/collection/the-pixel-captainz" target="_blank" class="footer-icon">
+          <img src="https://raw.githubusercontent.com/mx1000m/MyFiles/main/opensea.svg" alt="OpenSea Icon Icon"/>
+        </a>
     
-    document.body.appendChild(square);
-    
-    const viewportWidth = window.innerWidth;
-    const viewportHeight = window.innerHeight;
-    
-    const startX = getRandomInt(0, viewportWidth - 10);
-    const startY = getRandomInt(0, viewportHeight - 10);
-    square.style.left = `${startX}px`;
-    square.style.top = `${startY}px`;
-
-    const directionX = getRandomInt(-1, 1);
-    const directionY = getRandomInt(-1, 1);
-
-    let posX = startX;
-    let posY = startY;
-
-    const interval = setInterval(() => {
-      posX += directionX;
-      posY += directionY;
-      
-      square.style.left = `${posX}px`;
-      square.style.top = `${posY}px`;
-      
-      if (posX < -10 || posX > viewportWidth || posY < -10 || posY > viewportHeight) {
-        clearInterval(interval);
-        document.body.removeChild(square);
-      }
-    }, 50 + getRandomInt(0, 300));
-  }
-
-  // Create squares immediately and continue with interval
-  createSquare();
-  setInterval(createSquare, 150); // Change the interval to 150 milliseconds
-
-  // Boat and coins movement animation
-function moveBoatAndCoins() {
-  const boatAndCoins = document.querySelector('.boat-and-coins');
-  const viewportWidth = window.innerWidth;
-  const boatAndCoinsWidth = boatAndCoins.clientWidth;
-  const animationDuration = 15000; // Duration of the animation in milliseconds
-
-  let boatAndCoinsX = viewportWidth; // Start the boat and coins outside the right side of the viewport
-
-  function animate() {
-    boatAndCoinsX -= 1; // Move the boat and coins to the left
-    boatAndCoins.style.left = `${boatAndCoinsX}px`;
-
-    if (boatAndCoinsX + boatAndCoinsWidth <= -500) {
-      boatAndCoinsX = viewportWidth - 1; // Reset the position slightly outside the viewport on the right side
-    }
-
-    requestAnimationFrame(animate);
-  }
-
-  animate();
-}
-
-moveBoatAndCoins();
+      </div>
+    </div>
 
 
 
 
 
-
-
-
-const hamburgerMenu = document.querySelector('.hamburger-menu');
-const overlay = document.querySelector('.overlay');
-
-hamburgerMenu.addEventListener('click', () => {
-  overlay.style.display = 'block';
-  overlay.style.pointerEvents = 'auto'; // Enable pointer events when displaying the overlay
-  setTimeout(() => {
-    overlay.style.opacity = '1';
-  }, 10);
-});
-
-overlay.addEventListener('click', (event) => {
-  if (event.target === overlay) {
-    overlay.style.opacity = '0';
-    overlay.style.pointerEvents = 'none'; // Disable pointer events when hiding the overlay
-    setTimeout(() => {
-      overlay.style.display = 'none';
-    }, 300);
-  }
-});
-
-const menuLinks = document.querySelectorAll('.menu a');
-
-menuLinks.forEach((link) => {
-  link.addEventListener('click', () => {
-    overlay.style.opacity = '0';
-    overlay.style.pointerEvents = 'none'; // Disable pointer events when hiding the overlay
-    setTimeout(() => {
-      overlay.style.display = 'none';
-    }, 300);
-  });
-});
-
-
-
-</script>
 </body>
+
+
+
+
+<!-- SCRIPT SCRIPT SCRIPT SCRIPT SCRIPT SCRIPT  -->
+
+<script>
+  // Assuming you want to display the tag dynamically
+  window.onload = function() {
+    var tag = document.getElementById('tag');
+    tag.innerHTML = '<img src="pixel_captainz_tag.gif" alt="Pixel Captainz Tag">';
+
+    var tag2 = document.getElementById('tag2');
+    tag2.innerHTML = '<img src="pixel_captainz_tag2.gif" alt="Pixel Captainz Tag 2">';
+
+
+}
+</script>
+
+
+
+
 </html>
+
+

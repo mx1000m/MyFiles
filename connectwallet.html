@@ -11,9 +11,9 @@
             font-family: 'Arial', sans-serif; /* Optional: Set font-family */
             margin: 0; /* Remove default margin for the body */
             display: flex;
-            justify-content: flex-end; /* Align content to the top-right corner */
-            align-items: flex-start;
-            min-height: 100vh; /* Set minimum height to fill the viewport */
+            justify-content: center; /* Center content horizontally */
+            align-items: center; /* Center content vertically */
+            height: 100vh; /* Set height to fill the viewport */
         }
 
         button {
@@ -45,11 +45,16 @@
             <!-- Submenu for disconnect option -->
             <div class="submenu" id="walletSubmenu">
                 <button class="disconnectButton" onclick="disconnectWallet()">Disconnect</button>
+                <p id="nftInfo"></p> <!-- Display NFT info -->
             </div>
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.3.6/dist/web3.min.js"></script>
     <script>
+        // Connect to an Ethereum node
+        const web3 = new Web3(window.ethereum);
+
         // Function to connect the wallet
         async function connectWallet() {
             try {
@@ -63,6 +68,15 @@
                     // Update button text to display the connected wallet address
                     document.getElementById('connectWalletButton').innerText = userAddress;
                     
+                    // Show the submenu
+                    document.getElementById('walletSubmenu').style.display = 'block';
+
+                    // Get the number of NFTs owned by the wallet
+                    const nftCount = await getNFTCount(userAddress);
+                    
+                    // Display the NFT info
+                    document.getElementById('nftInfo').innerText = `You own ${nftCount} baby pixel captainz.`;
+
                     alert('Wallet Connected!');
                 } else {
                     // MetaMask not detected
@@ -88,15 +102,30 @@
             
             // Hide the submenu
             document.getElementById('walletSubmenu').style.display = 'none';
-            
+
+            // Clear the NFT info
+            document.getElementById('nftInfo').innerText = '';
+
             alert('Wallet Disconnected!');
 
             // Re-enable the "Connect Wallet" button
             document.getElementById('connectWalletButton').onclick = connectWallet;
         }
 
-        // Call connectWallet on page load for testing
-        document.getElementById('connectWalletButton').onclick = connectWallet;
+        // Function to get the number of NFTs owned by the wallet
+        async function getNFTCount(walletAddress) {
+            // Replace this with the actual contract address and ABI
+            const contractAddress = '0x47448240a1596ed76db6426fa9cc26b09fa3b830';
+            const contractABI = [/* ... */];
+
+            // Create a contract instance
+            const contract = new web3.eth.Contract(contractABI, contractAddress);
+
+            // Call the appropriate function to get the NFT count (adjust function name accordingly)
+            const nftCount = await contract.methods.balanceOf(walletAddress).call();
+
+            return nftCount;
+        }
     </script>
 
 </body>

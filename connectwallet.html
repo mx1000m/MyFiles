@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connect Wallet Demo</title>
+    <!-- Add your CSS styles here if needed -->
+</head>
+<body>
+
+    <div>
+        <button id="connectWalletButton">Connect Wallet</button>
+    </div>
+
+    <script>
+        async function connectWallet() {
+            try {
+                // Check if MetaMask is installed
+                if (typeof window.ethereum !== 'undefined') {
+                    // Request account access if needed
+                    await window.ethereum.request({ method: 'eth_requestAccounts' });
+                    // Accounts now exposed
+                    alert('Wallet Connected!');
+                } else {
+                    // MetaMask not detected
+                    alert('MetaMask not detected. Please install MetaMask to use this feature.');
+                }
+            } catch (error) {
+                // User denied account access or other error
+                console.error('Error connecting wallet:', error.message);
+            }
+        }
+
+        // Attach the connectWallet function to the button click event
+        document.getElementById('connectWalletButton').addEventListener('click', connectWallet);
+    </script>
+
+</body>
+</html>

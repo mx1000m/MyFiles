@@ -28,6 +28,11 @@
             display: none; /* Initially hidden */
             z-index: 1;
         }
+
+        /* Style for the disconnect button */
+        .disconnectButton {
+            margin-left: auto; /* Push the button to the right */
+        }
     </style>
 </head>
 <body>
@@ -38,7 +43,7 @@
             <button id="connectWalletButton" onclick="toggleSubmenu()">Connect Wallet</button>
             <!-- Submenu for disconnect option -->
             <div class="submenu" id="walletSubmenu">
-                <button onclick="disconnectWallet()">Disconnect</button>
+                <button class="disconnectButton" onclick="disconnectWallet()">Disconnect</button>
             </div>
         </div>
     </div>

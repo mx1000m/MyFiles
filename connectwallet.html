@@ -3,59 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Connect Wallet Demo</title>
+    <title>Connect Wallet and Check NFTs</title>
     <style>
         body {
             background-color: black;
             color: white; /* Set text color to white for better visibility on a black background */
             font-family: 'Arial', sans-serif; /* Optional: Set font-family */
-            margin: 0; /* Remove default margin for the body */
             display: flex;
             justify-content: center; /* Center content horizontally */
             align-items: center; /* Center content vertically */
             height: 100vh; /* Set height to fill the viewport */
+            margin: 0; /* Remove default margin for the body */
         }
 
         button {
-            margin: 20px; /* Add some margin for better spacing */
-        }
-
-        /* Style for the submenu */
-        .submenu {
-            position: absolute;
-            background-color: #333; /* Dark background color */
             padding: 10px;
-            display: none; /* Initially hidden */
-            z-index: 1;
-            margin-left: auto; /* Align with the right side of the wallet address */
-        }
-
-        /* Style for the disconnect button */
-        .disconnectButton {
-            margin-left: auto; /* Push the button to the right */
+            font-size: 16px;
         }
     </style>
 </head>
 <body>
 
     <div>
-        <!-- Use a div to wrap the button and submenu -->
-        <div>
-            <button id="connectWalletButton" onclick="toggleSubmenu()">Connect Wallet</button>
-            <!-- Submenu for disconnect option -->
-            <div class="submenu" id="walletSubmenu">
-                <button class="disconnectButton" onclick="disconnectWallet()">Disconnect</button>
-                <p id="nftInfo"></p> <!-- Display NFT info -->
-            </div>
-        </div>
+        <button id="connectWalletButton" onclick="connectWallet()">Connect Wallet</button>
+        <p id="nftInfo"></p>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/web3@1.3.6/dist/web3.min.js"></script>
     <script>
-        // Connect to an Ethereum node
-        const web3 = new Web3(window.ethereum);
-
-        // Function to connect the wallet
         async function connectWallet() {
             try {
                 // Check if MetaMask is installed and Ethereum object is present
@@ -64,19 +39,13 @@
                     const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
                     // Accounts now exposed
                     const userAddress = accounts[0];
-                    
-                    // Update button text to display the connected wallet address
-                    document.getElementById('connectWalletButton').innerText = userAddress;
-                    
-                    // Show the submenu
-                    document.getElementById('walletSubmenu').style.display = 'block';
 
                     // Get the number of NFTs owned by the wallet
                     const nftCount = await getNFTCount(userAddress);
                     
                     // Display the NFT info
-                    document.getElementById('nftInfo').innerText = `You own ${nftCount} baby pixel captainz.`;
-
+                    document.getElementById('nftInfo').innerText = `You own ${nftCount} NFTs.`;
+                    
                     alert('Wallet Connected!');
                 } else {
                     // MetaMask not detected
@@ -88,40 +57,15 @@
             }
         }
 
-        // Function to toggle the submenu
-        function toggleSubmenu() {
-            // Toggle the display of the submenu
-            const submenu = document.getElementById('walletSubmenu');
-            submenu.style.display = (submenu.style.display === 'block') ? 'none' : 'block';
-        }
-
-        // Function to disconnect the wallet
-        function disconnectWallet() {
-            // Reset button text to "Connect Wallet"
-            document.getElementById('connectWalletButton').innerText = 'Connect Wallet';
-            
-            // Hide the submenu
-            document.getElementById('walletSubmenu').style.display = 'none';
-
-            // Clear the NFT info
-            document.getElementById('nftInfo').innerText = '';
-
-            alert('Wallet Disconnected!');
-
-            // Re-enable the "Connect Wallet" button
-            document.getElementById('connectWalletButton').onclick = connectWallet;
-        }
-
-        // Function to get the number of NFTs owned by the wallet
         async function getNFTCount(walletAddress) {
-            // Replace this with the actual contract address and ABI
+            // Replace with the contract address and ABI
             const contractAddress = '0x47448240a1596ed76db6426fa9cc26b09fa3b830';
             const contractABI = [/* ... */];
 
             // Create a contract instance
             const contract = new web3.eth.Contract(contractABI, contractAddress);
 
-            // Call the appropriate function to get the NFT count (adjust function name accordingly)
+            // Call the balanceOf function to get the number of NFTs owned by the wallet
             const nftCount = await contract.methods.balanceOf(walletAddress).call();
 
             return nftCount;

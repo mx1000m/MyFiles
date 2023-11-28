@@ -63,9 +63,6 @@
                     // Update button text to display the connected wallet address
                     document.getElementById('connectWalletButton').innerText = userAddress;
                     
-                    // Show the submenu
-                    document.getElementById('walletSubmenu').style.display = 'block';
-                    
                     alert('Wallet Connected!');
                 } else {
                     // MetaMask not detected
@@ -99,7 +96,7 @@
         }
 
         // Call connectWallet on page load for testing
-        connectWallet();
+        document.getElementById('connectWalletButton').onclick = connectWallet;
     </script>
 
 </body>

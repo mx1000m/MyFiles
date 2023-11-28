@@ -29,7 +29,6 @@
         <p id="nftInfo"></p>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/web3@1.3.6/dist/web3.min.js"></script>
     <script>
         async function connectWallet() {
             try {
@@ -61,6 +60,9 @@
             // Replace with the contract address and ABI
             const contractAddress = '0x47448240a1596ed76db6426fa9cc26b09fa3b830';
             const contractABI = [/* ... */];
+
+            // Create a web3 instance using MetaMask's provider
+            const web3 = new Web3(window.ethereum);
 
             // Create a contract instance
             const contract = new web3.eth.Contract(contractABI, contractAddress);

@@ -4,22 +4,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connect Wallet Demo</title>
-    <!-- Add your CSS styles here if needed -->
+    <style>
+        body {
+            background-color: black;
+            color: white; /* Set text color to white for better visibility on a black background */
+            font-family: 'Arial', sans-serif; /* Optional: Set font-family */
+            margin: 0; /* Remove default margin for the body */
+            display: flex;
+            justify-content: flex-end; /* Align content to the top-right corner */
+            align-items: flex-start;
+            min-height: 100vh; /* Set minimum height to fill the viewport */
+        }
+
+        button {
+            margin: 20px; /* Add some margin for better spacing */
+        }
+
+        /* Style for the submenu */
+        .submenu {
+            position: absolute;
+            background-color: #333; /* Dark background color */
+            padding: 10px;
+            display: none; /* Initially hidden */
+            z-index: 1;
+        }
+    </style>
 </head>
 <body>
 
     <div>
-        <button id="connectWalletButton">Connect Wallet</button>
+        <!-- Use a div to wrap the button and submenu -->
+        <div>
+            <button id="connectWalletButton" onclick="toggleSubmenu()">Connect Wallet</button>
+            <!-- Submenu for disconnect option -->
+            <div class="submenu" id="walletSubmenu">
+                <button onclick="disconnectWallet()">Disconnect</button>
+            </div>
+        </div>
     </div>
 
     <script>
         async function connectWallet() {
             try {
-                // Check if MetaMask is installed
-                if (typeof window.ethereum !== 'undefined') {
+                // Check if MetaMask is installed and Ethereum object is present
+                if (window.ethereum && typeof window.ethereum.request === 'function') {
                     // Request account access if needed
-                    await window.ethereum.request({ method: 'eth_requestAccounts' });
+                    const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
                     // Accounts now exposed
+                    const userAddress = accounts[0];
+                    
+                    // Update button text to display the connected wallet address
+                    document.getElementById('connectWalletButton').innerText = userAddress;
+                    
+                    // Show the submenu
+                    document.getElementById('walletSubmenu').style.display = 'block';
+                    
                     alert('Wallet Connected!');
                 } else {
                     // MetaMask not detected
@@ -31,8 +70,21 @@
             }
         }
 
-        // Attach the connectWallet function to the button click event
-        document.getElementById('connectWalletButton').addEventListener('click', connectWallet);
+        function toggleSubmenu() {
+            // Toggle the display of the submenu
+            const submenu = document.getElementById('walletSubmenu');
+            submenu.style.display = (submenu.style.display === 'block') ? 'none' : 'block';
+        }
+
+        function disconnectWallet() {
+            // Reset button text to "Connect Wallet"
+            document.getElementById('connectWalletButton').innerText = 'Connect Wallet';
+            
+            // Hide the submenu
+            document.getElementById('walletSubmenu').style.display = 'none';
+            
+            alert('Wallet Disconnected!');
+        }
     </script>
 
 </body>

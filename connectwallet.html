@@ -44,6 +44,7 @@
     </div>
 
     <script>
+        // Function to connect the wallet
         async function connectWallet() {
             try {
                 // Check if MetaMask is installed and Ethereum object is present
@@ -70,12 +71,14 @@
             }
         }
 
+        // Function to toggle the submenu
         function toggleSubmenu() {
             // Toggle the display of the submenu
             const submenu = document.getElementById('walletSubmenu');
             submenu.style.display = (submenu.style.display === 'block') ? 'none' : 'block';
         }
 
+        // Function to disconnect the wallet
         function disconnectWallet() {
             // Reset button text to "Connect Wallet"
             document.getElementById('connectWalletButton').innerText = 'Connect Wallet';
@@ -84,6 +87,9 @@
             document.getElementById('walletSubmenu').style.display = 'none';
             
             alert('Wallet Disconnected!');
+
+            // Re-enable the "Connect Wallet" button
+            document.getElementById('connectWalletButton').onclick = connectWallet;
         }
 
         // Call connectWallet on page load for testing
